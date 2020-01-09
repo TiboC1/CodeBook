@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\bootstrap",
+    "\\database",
+    "\\public",
+    "\\tests",
+    "\\tests\\Feature",
+    "\\tests\\Unit"
+  ],
+  "SelectedNode": "\\package.json",
+  "PreviewInSolutionExplorer": false
+}
