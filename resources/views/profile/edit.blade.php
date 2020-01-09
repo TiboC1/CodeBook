@@ -1,7 +1,7 @@
-@extends (.layouts.app)
+@extends('layouts.app')
 @section('contents')
 <div>
-<form action="POST" enctype="multipart/form-data">
+<form method="POST" action="" enctype="multipart/form-data">
 <label>Date of birth</label>
 <input name="date_of_birth" value="15-05-1984" data-format="DD-MM-YYYY" data-template="D MMM YYYY"> 
 
