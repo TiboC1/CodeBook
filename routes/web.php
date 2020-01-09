@@ -15,10 +15,12 @@ Route::get('/', function () {
     return view('/main/welcome');
 });
 
-Route::get('/test', function () {
-    return view('/main/test');
-});
+Route::get('/main/home', 'PostController@index')->name('home');
+
+Route::get('/profile/{user}', 'ProfileController@index');
+Route::get('/profile/{user}/edit','ProfileController@edit');
+Route::patch('/profile/{user}', 'ProfileController@update');
+
+Route::post('/main/home', 'PostController@store');
 
 Auth::routes();
-
-Route::get('/main/home', 'HomeController@index')->name('welcome');
