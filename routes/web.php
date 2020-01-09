@@ -15,10 +15,18 @@ Route::get('/', function () {
     return view('/main/welcome');
 });
 
+Route::get('/test', function () {
+    return view('/main/test');
+});
+
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/main/home', 'HomeController@index')->name('home');
 
 Route::get('/home', function (){
     return view('main/home');
 });
+=======
+Route::get('/main/home', 'HomeController@index')->name('welcome');
+>>>>>>> 3fa4871cce6e0ba1ba278b082eab7316df1248d8
