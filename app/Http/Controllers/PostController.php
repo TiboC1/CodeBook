@@ -43,7 +43,7 @@ class PostController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'intro' => ''
+            'intro' => 'max255',
             'body' => 'required',
             
         ]);
