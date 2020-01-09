@@ -21,12 +21,12 @@ Route::get('/test', function () {
 
 Auth::routes();
 
-<<<<<<< HEAD
 Route::get('/main/home', 'HomeController@index')->name('home');
 
 Route::get('/home', function (){
     return view('main/home');
 });
-=======
-Route::get('/main/home', 'HomeController@index')->name('welcome');
->>>>>>> 3fa4871cce6e0ba1ba278b082eab7316df1248d8
+
+Route::get('/profile/{user}', 'ProfileController@index');
+Route::get('/profie/{user}/edit','ProfilesControler@edit');
+Route::patch('/profile/{user}', 'ProfilesController@update');
