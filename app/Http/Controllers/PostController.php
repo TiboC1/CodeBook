@@ -12,9 +12,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        return view('/main/home');
     }
 
     /**
@@ -35,7 +41,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'intro' => ''
+            'body' => 'required',
+            
+        ]);
+        return view('/main/home');
     }
 
     /**
