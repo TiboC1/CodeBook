@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('contents')
+@section('content')
 <div>
 <form method="POST" action="" enctype="multipart/form-data">
 <label>Date of birth</label>
-<input name="date_of_birth" value="15-05-1984" data-format="DD-MM-YYYY" data-template="D MMM YYYY"> 
+<input name="date_of_birth" value="15-05-1984" data-format="DD-MM-YYYY" data-template="DD MM YYYY"> 
 
 <label>Gender</label><br />
 <input type="radio" name="gender" value="male" checked> Male<br>

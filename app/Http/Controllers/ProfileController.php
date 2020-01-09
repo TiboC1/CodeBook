@@ -40,7 +40,18 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData=$request->validate([
+            'dob'=> 'date_format:DD-MM-YYYY|before:today',
+            'avatar'=>'image',
+            'banner' =>'image',
+
+        ]);
+
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
+        
+        auth()->user()->posts()->update();
+        return redirect("/profile/{$user->id}");
     }
 
     /**
@@ -62,6 +73,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
+        $this->authorize('update',$user->profile);
         return view('/profile/edit');
     }
 
@@ -74,7 +86,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+        $this->authorize('update',$user->profile);
     }
 
     /**
