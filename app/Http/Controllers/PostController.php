@@ -44,10 +44,21 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'intro' => 'max255',
-            'body' => 'required',
-            
+            'body' => '',
+            'image' => 'image'
         ]);
-        return view('/main/home');
+
+        $imagePath = request('image')->store('uploads', 'public');
+
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
+
+        auth()->user()->posts()->create([
+            'title' => $data['title'],
+            'intro' => $data['intro'],
+            'body' => $data['body'],
+            'image' => $imagePath,
+        ]);
     }
 
     /**
@@ -92,6 +103,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+    }
+
+    public function amountOfPosts(Post $post) 
+    {
+        return $this->profile()->post()->count();
     }
 }
