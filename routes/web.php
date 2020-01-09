@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::get('/main/home', 'PostController@index')->name('home');
 
 Route::get('/profile/{user}', 'ProfileController@index');
-Route::get('/profile/{user}/edit','ProfilesControler@edit');
-Route::patch('/profile/{user}', 'ProfilesController@update');
+Route::get('/profile/{user}/edit','ProfileController@edit');
+Route::patch('/profile/{user}', 'ProfileController@update');
+
 
 Route::post('/main/home', 'PostController@store');
 
