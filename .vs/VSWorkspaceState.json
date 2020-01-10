@@ -1,25 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
-    "\\bootstrap",
-<<<<<<< HEAD
+    "\\config",
     "\\resources",
     "\\resources\\views",
     "\\resources\\views\\auth",
+    "\\resources\\views\\auth\\passwords",
     "\\resources\\views\\layouts",
     "\\resources\\views\\profile",
-    "\\tests\\Unit"
-  ],
-  "SelectedNode": "\\resources\\views\\auth\\register.blade.php",
-=======
-    "\\database",
-    "\\public",
     "\\tests",
-    "\\tests\\Feature",
     "\\tests\\Unit"
   ],
-  "SelectedNode": "\\package.json",
->>>>>>> 4eebabe4861fd86836fd737674e40f885b417774
+  "SelectedNode": "\\resources\\views\\profile\\edit.blade.php",
   "PreviewInSolutionExplorer": false
 }
