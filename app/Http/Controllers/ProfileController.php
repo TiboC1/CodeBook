@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+
+use App\User;
+use App\Post;
+
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -19,7 +23,9 @@ class ProfileController extends Controller
 
      public function index()
     {
-        return view('/profile/show');
+        $profiles=Profile::latest()->get();
+        dd($profiles);
+
     }
 
     /**
@@ -29,7 +35,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        return view('/profile/create');
     }
 
     /**
@@ -40,18 +46,33 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData=$request->validate([
-            'dob'=> 'date_format:DD-MM-YYYY|before:today',
-            'avatar'=>'image',
-            'banner' =>'image',
+        dump(request()->all());
+        // $validatedData=$request->validate([
+        //     'dob'=> 'date_format:DD-MM-YYYY|before:today',
+        //     'avatar'=>'image',
+        //     'banner' =>'image',
+            
+        //     ]);
+            
+            // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            // $image->save();
+            
+            //auth()->user()->posts()->update();
+            $profile= new Profile;
+            $profile->user_id=$user->id;
+            $profile->dob=request('dob');            
+            $profile->gender=request('gender');
+            $profile->avatar=request('avatar');
+            $profile->banner=request('banner');
+            $profile->description=request('description');
+            $profile->city=request('city');
+            $profile->relationshipstatus=request('relationshipstatus');
+            $profile->work=request('work');
+            $profile->education=request('education');
+            $profile->save();
 
-        ]);
+            return redirect("/profile/index");
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
-        
-        auth()->user()->posts()->update();
-        return redirect("/profile/{$user->id}");
     }
 
     /**
@@ -62,7 +83,11 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-       // 
+        $target= Profile::find($profile->id);
+        dd($target);
+        // return view('profile',[
+        //     'profile'=>$target
+        // ]);
     }
 
     /**
@@ -71,9 +96,9 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit(Profile $profile, User $user)
     {
-        $this->authorize('update',$user->profile);
+
         return view('/profile/edit');
     }
 
@@ -84,9 +109,35 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, Profile $profile, User $user)
     {
         $this->authorize('update',$user->profile);
+
+        $validatedData=$request->validate([
+            'dob'=> 'date_format:DD-MM-YYYY|before:today',
+            'avatar'=>'image',
+            'banner' =>'image',
+            
+            ]);
+            
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            $image->save();
+            
+            auth()->user()->posts()->update();
+            $profile= new Profile;
+            $profile->user_id=$user->id;
+            $profile->dob=request('dob');            
+            $profile->gender=request('gender');
+            $profile->avatar=request('avatar');
+            $profile->banner=request('banner');
+            $profile->description=request('description');
+            $profile->city=request('city');
+            $profile->relationshipstatus=request('relationshipstatus');
+            $profile->work=request('work');
+            $profile->education=request('education');
+            $profile->save();
+
+            return redirect("/profile/{$user->id}");
     }
 
     /**
