@@ -138,7 +138,7 @@ class ProfileController extends Controller
             $profile->education=request('education');
             $profile->save();
 
-            return redirect("/profile/{$user->id}");
+            return redirect("/profile/{$profile->id}");
     }
 
     /**
