@@ -114,17 +114,24 @@ class ProfileController extends Controller
 
         $this->authorize('update',$user->profile);
 
-        $validatedData= request()->validate([
-            'dob'=> 'date_format:DD-MM-YYYY|before:today',
-            'avatar'=>'image',
-            'banner' =>'image',
+        $validatedData = request()->validate([
+            'nickname' => '',
+            'dob' => 'date_format:DD-MM-YYYY|before:today',
+            'gender' => '',
+            'avatar' => '',
+            'banner' => '',
+            'description' => '',
+            'city' => '',
+            'relationshipstatus' => '',
+            'work' => '',
+            'education' => '',
             
             ]);
             
             //$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             //$image->save();
             
-            auth()->user()->profile()->update();
+            auth()->user()->profile->update();
 
             return redirect("/profile/{$user->id}");
     }
