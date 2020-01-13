@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Edit profile') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="/profile/{{$user->id}}">
                         @csrf
 
 <div class="form-group row">
@@ -127,36 +127,6 @@
         </div>
     </div>
 </div>
-
-
-<div class="form-group row">
-         <label for="banner" class="col-md-4 col-form-label text-md-right">{{ __('Banner') }}</label>
-         <input type="file" name="banner" placeholder="Upload a banner" /><br />
-</div>
-     
-     
-     
-<div class="form-group row">
-        <label for="groupname" class="col-md-4 col-form-label text-md-right">{{ __('Groupname') }}</label>
-            <div class="col-md-6">
-                <input type="text" name="groupname"/><br />
-                </div>
-                </div>
-     
-     
-     
-     
-     
-     <div class="form-group row">
-        <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
-            <div class="col-md-6">
-                 <textarea id = "myTextArea"
-                  rows = "6"
-                  cols = "34">Your text here
-                  </textarea>
-             </div>
-     </div>
-
 
 
 @endsection
