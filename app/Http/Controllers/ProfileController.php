@@ -100,11 +100,7 @@ class ProfileController extends Controller
     public function edit(Profile $profile, User $user)
     {
 
-<<<<<<< HEAD
         return view('/profile/edit', compact('user','profile'));
-=======
-        return view('/profile/edit', compact('user'));
->>>>>>> 7a3b0b10827e2a0129daa0d4b41361f27cdf7a8f
     }
 
     /**
@@ -118,31 +114,35 @@ class ProfileController extends Controller
     {
        $this->authorize('update',$user->profile); 
 
-        $validatedData=$request->validate([
+        $validatedData=request()->validate([
             'dob'=> 'date_format:DD-MM-YYYY|before:today',
+            'gender' =>'',
             'avatar'=>'image',
             'banner' =>'image',
-            
-            ]);
+            'description' =>'',
+            'city' => '',
+            'relationshipstatus' => '',
+            'work' => '',
+            'education' => '' 
+           ]);
             
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
             
-            auth()->user()->posts()->update();
-            $profile= new Profile;
-            $profile->user_id=$user->id;
-            $profile->dob=request('dob');            
-            $profile->gender=request('gender');
-            $profile->avatar=request('avatar');
-            $profile->banner=request('banner');
-            $profile->description=request('description');
-            $profile->city=request('city');
-            $profile->relationshipstatus=request('relationshipstatus');
-            $profile->work=request('work');
-            $profile->education=request('education');
-            $profile->save();
+            Auth::user()->user()->profile->update();
+            // $profile->user_id=$user->id;
+            // $profile->dob=request('dob');            
+            // $profile->gender=request('gender');
+            // $profile->avatar=request('avatar');
+            // $profile->banner=request('banner');
+            // $profile->description=request('description');
+            // $profile->city=request('city');
+            // $profile->relationshipstatus=request('relationshipstatus');
+            // $profile->work=request('work');
+            // $profile->education=request('education');
+            // $profile->save();
 
-            return redirect("/profile/{$profile->id}");
+            return redirect("/profile/{$user->id}");
     }
 
     /**
