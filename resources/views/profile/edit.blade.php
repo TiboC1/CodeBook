@@ -128,6 +128,17 @@
         </div>
     </div>
 </div>
+<div class='container'>
+<div class='row justify-content-start'>
+<img src="/frankenprofile.jpg">
+
+</div>
+
+
+
+</div>
+
+
 
 
 @endsection
