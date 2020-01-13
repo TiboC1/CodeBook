@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/profile', 'ProfileController@store');
-
+Route::get('profile/store', 'ProfileController@store');
 Route::get('/main/home', 'PostController@index')->name('home');
 Route::get('/index', 'ProfileController@index');
 Route::get('/profile/create','ProfileController@create');

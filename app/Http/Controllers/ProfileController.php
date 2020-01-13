@@ -6,6 +6,7 @@ use App\Profile;
 use APP\User;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -33,7 +34,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('/profile/create');
+        return redirect('/profile/store');
     }
 
     /**
@@ -57,19 +58,19 @@ class ProfileController extends Controller
             
             //auth()->user()->posts()->update();
             $profile= new Profile;
-            $profile->user_id=$user->id;
-            $profile->dob=request('dob');            
-            $profile->gender=request('gender');
-            $profile->avatar=request('avatar');
-            $profile->banner=request('banner');
-            $profile->description=request('description');
-            $profile->city=request('city');
-            $profile->relationshipstatus=request('relationshipstatus');
-            $profile->work=request('work');
-            $profile->education=request('education');
+            $profile->user_id=Auth::id();
+            // $profile->dob=request('dob');            
+            // $profile->gender=request('gender');
+            // $profile->avatar=request('avatar');
+            // $profile->banner=request('banner');
+            // $profile->description=request('description');
+            // $profile->city=request('city');
+            // $profile->relationship=request('relationship');
+            // $profile->work=request('work');
+            // $profile->education=request('education');
             $profile->save();
 
-            return redirect("/profile/index");
+            return redirect("/index");
 
     }
 
