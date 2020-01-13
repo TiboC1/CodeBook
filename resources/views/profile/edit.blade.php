@@ -13,19 +13,20 @@
                 <div class="card-header">{{ __('Edit profile') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="/profile/{{$profile->id}}">
                         @csrf
+                        @method('PATCH')
 
-<div class="form-group row">
-<label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-<input type="file" name="avatar" placeholder="Upload an avatar" /><br />
-                        
-</div>
-<div class="form-group row">
+                            <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
+                            <input type="file" name="avatar" placeholder="Upload an avatar" value="{{$profile->avatar}}" /><br />
+                                                    
+                            </div>
+                            <div class="form-group row">
 
                             <label for="banner" class="col-md-4 col-form-label text-md-right">{{ __('Banner') }}</label>
                             
-                            <input type="file" name="banner" placeholder="Upload a banner" /><br />
+                            <input type="file" name="banner" placeholder="Upload a banner" value="{{$profile->banner}}"/><br />
                         </div>
 
                         <div class="form-group row">
@@ -46,7 +47,7 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="date" name="" value=>
+                                <input id="dob" type="date" name="" value="{{$profile->dob}}">
 
                             </div>
                         </div>
@@ -57,7 +58,7 @@
                             <div class="col-md-6">
                                 <textarea id = "myTextArea"
                   rows = "6"
-                  cols = "34">Your text here</textarea>
+                  cols = "34">{{$profile->description}}</textarea>
                                
                             </div>
                         </div>
@@ -67,7 +68,7 @@
                             <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
 
                             <div class="col-md-6">
-                                <input id="city" type="text" class="" name="city" value="">
+                                <input id="city" type="text" class="" name="city" value="{{$profile->city}}">
 
                             
                             </div>
@@ -90,7 +91,7 @@
                             <label for="education" class="col-md-4 col-form-label text-md-right">{{ __('Education') }}</label>
 
                             <div class="col-md-6">
-                                <input id="education" type="text" class="" name="education" value="">
+                                <input id="education" type="text" class="" name="education" value="{{$profile->education}}">
                             </div>
                         </div>
 

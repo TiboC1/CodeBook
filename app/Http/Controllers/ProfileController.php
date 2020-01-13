@@ -72,7 +72,7 @@ class ProfileController extends Controller
             // $profile->education=request('education');
             $profile->save();
 
-            return redirect("/index");
+            return redirect("/main/home");
 
     }
 
@@ -100,7 +100,7 @@ class ProfileController extends Controller
     public function edit(Profile $profile, User $user)
     {
 
-        return view('/profile/edit');
+        return view('/profile/edit', compact('user','profile'));
     }
 
     /**
@@ -112,7 +112,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile, User $user)
     {
-        $this->authorize('update',$user->profile);
+       $this->authorize('update',$user->profile); 
 
         $validatedData=$request->validate([
             'dob'=> 'date_format:DD-MM-YYYY|before:today',
