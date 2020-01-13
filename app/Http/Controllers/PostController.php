@@ -62,6 +62,8 @@ class PostController extends Controller
             'body' => $data['body'],
             'image' => $imagePath,
         ]);
+
+        return view('/main/home');
     }
 
     /**
