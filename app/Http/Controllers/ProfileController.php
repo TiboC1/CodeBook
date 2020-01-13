@@ -45,7 +45,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
         dump(request()->all());
         // $validatedData=$request->validate([
@@ -72,7 +72,7 @@ class ProfileController extends Controller
             // $profile->education=request('education');
             $profile->save();
 
-            return redirect("/main/home");
+            return view('profile', compact('user', 'profile'));
 
     }
 
@@ -100,7 +100,11 @@ class ProfileController extends Controller
     public function edit(Profile $profile, User $user)
     {
 
+<<<<<<< HEAD
         return view('/profile/edit', compact('user','profile'));
+=======
+        return view('/profile/edit', compact('user'));
+>>>>>>> 7a3b0b10827e2a0129daa0d4b41361f27cdf7a8f
     }
 
     /**
