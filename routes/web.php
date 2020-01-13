@@ -25,6 +25,6 @@ Route::get('/profile/{user}/edit','ProfileController@edit');
 Route::patch('/profile/{user}', 'ProfileController@update');
 
 
-Route::post('/main/home', 'PostController@store');
+Route::post('/main/home', 'PostController@store')->name ('create');
 
 Auth::routes();
