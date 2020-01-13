@@ -8,15 +8,14 @@
 
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
-                    @csrf
+                    @csrf 
+                    @method('patch')
+<div class="form-group row">
 
-                        <div class="form-group row">
-
-                        </div>
-                        <div class="form-group row">
-                        <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-
-                        <input type="file" name="avatar" placeholder="Upload an avatar" /><br />
+</div>
+<div class="form-group row">
+<label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
+<input type="file" name="avatar" placeholder="Upload an avatar" /><br />
 
                             <label for="banner" class="col-md-4 col-form-label text-md-right">{{ __('Banner') }}</label>
                             
