@@ -1,14 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\app",
-    "\\bootstrap",
-    "\\database",
-    "\\public",
+    "\\config",
+    "\\resources",
+    "\\resources\\views",
+    "\\resources\\views\\auth",
+    "\\resources\\views\\auth\\passwords",
+    "\\resources\\views\\layouts",
+    "\\resources\\views\\profile",
     "\\tests",
-    "\\tests\\Feature",
     "\\tests\\Unit"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\resources\\views\\profile\\edit.blade.php",
   "PreviewInSolutionExplorer": false
 }
