@@ -127,15 +127,19 @@
         </div>
     </div>
 </div>
+<div class='container'>
+<div class='row justify-content-start'>
+<img src="/frankenprofile.jpg">
 
-
-<<<<<<< HEAD
-<div class="form-group row">
-         <label for="banner" class="col-md-4 col-form-label text-md-right">{{ __('Banner') }}</label>
-         <input type="file" name="banner" placeholder="Upload a banner" /><br />
 </div>
-=======
->>>>>>> 37c1e5edbc7df426bea65b4403e4c8e8f2315215
+
+
+
+</div>
+
+
+
+
 @endsection
 
 <!-- implement footer here -->
