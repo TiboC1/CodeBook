@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
+use App\User;
+use App\Post;
+
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -71,7 +74,7 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit(Profile $profile, User $user)
     {
         $this->authorize('update',$user->profile);
         return view('/profile/edit');
@@ -84,7 +87,7 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, Profile $profile, User $user)
     {
         $this->authorize('update',$user->profile);
     }
