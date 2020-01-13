@@ -24,7 +24,7 @@ class ProfileController extends Controller
      public function index()
     {
         $profiles=Profile::latest()->get();
-        dd($profiles);
+        //dd($profiles);
 
     }
 
@@ -84,7 +84,7 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         $target= Profile::find($profile->id);
-        dd($target);
+        //dd($target);
         // return view('profile',[
         //     'profile'=>$target
         // ]);
@@ -114,7 +114,7 @@ class ProfileController extends Controller
 
         $this->authorize('update',$user->profile);
 
-        $validatedData = request()->validate([
+        $data = request()->validate([
             'nickname' => '',
             'dob' => 'date_format:DD-MM-YYYY|before:today',
             'gender' => '',
