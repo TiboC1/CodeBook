@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -76,5 +76,10 @@
             @yield('content')
         </main>
     </div>
+    <footer style="bg-primary;">
+<div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://becode.org/"> BeCode.org</a>
+  </div>
+  </footer>
 </body>
 </html>
