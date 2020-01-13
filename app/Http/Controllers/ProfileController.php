@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Profile;
-use APP\User;
+
+use App\User;
 use App\Post;
+
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
