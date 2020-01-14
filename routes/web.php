@@ -27,4 +27,5 @@ Route::patch('/profile/{user}', 'ProfileController@update')->name('profile');
 
 Route::post('/main/home', 'PostController@store')->name('create');
 
+
 Auth::routes();

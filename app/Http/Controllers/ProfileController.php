@@ -25,7 +25,7 @@ class ProfileController extends Controller
      public function index()
     {
         $profiles=Profile::latest()->get();
-        dd($profiles);
+        //dd($profiles);
 
     }
 
@@ -85,7 +85,7 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         $target= Profile::find($profile->id);
-        dd($target);
+        //dd($target);
         // return view('profile',[
         //     'profile'=>$target
         // ]);
@@ -112,35 +112,27 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile, User $user)
     {
-       $this->authorize('update',$user->profile); 
 
-        $validatedData=request()->validate([
-            'dob'=> 'date_format:DD-MM-YYYY|before:today',
-            'gender' =>'',
-            'avatar'=>'image',
-            'banner' =>'image',
-            'description' =>'',
+        $this->authorize('update',$user->profile);
+
+        $data = request()->validate([
+            'nickname' => '',
+            'dob' => 'date_format:DD-MM-YYYY|before:today',
+            'gender' => '',
+            'avatar' => '',
+            'banner' => '',
+            'description' => '',
             'city' => '',
             'relationshipstatus' => '',
             'work' => '',
-            'education' => '' 
-           ]);
+            'education' => '',
             
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-            $image->save();
+            ]);
             
-            Auth::user()->user()->profile->update();
-            // $profile->user_id=$user->id;
-            // $profile->dob=request('dob');            
-            // $profile->gender=request('gender');
-            // $profile->avatar=request('avatar');
-            // $profile->banner=request('banner');
-            // $profile->description=request('description');
-            // $profile->city=request('city');
-            // $profile->relationshipstatus=request('relationshipstatus');
-            // $profile->work=request('work');
-            // $profile->education=request('education');
-            // $profile->save();
+            //$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            //$image->save();
+            
+            auth()->user()->profile->update();
 
             return redirect("/profile/{$user->id}");
     }
