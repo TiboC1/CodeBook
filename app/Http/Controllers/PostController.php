@@ -44,12 +44,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $data = $request->validate([
             'title' => 'required|max:255',
             'intro' => 'max255',
             'body' => '',
             'image' => 'image'
         ]);
+        dd($data);
 
         $imagePath = request('image')->store('uploads', 'public');
 
