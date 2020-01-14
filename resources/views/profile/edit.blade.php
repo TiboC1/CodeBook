@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Edit profile') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" enctype='multipart/form-data' action="/profile/{{$user->id}}">
+                    <form method="POST" enctype='multipart/form-data' action='/profile/{{$user->id}}'>
                         @csrf
                         @method('PATCH')
 
@@ -47,7 +47,7 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="date" name="" value="{{$profile->dob}}">
+                                <input id="dob" type="date" name="dob" value="{{$profile->dob}}">
 
                             </div>
                         </div>
@@ -111,7 +111,7 @@
 
 
                             <div class="col-md-6">
-                                <select id="relationshipstatus" name="relationshipstatus">
+                                <select id="relationship" name="relationship">
                                 <option value="single">Single</option>
                                 <option value="dating">Dating</option>
                                 <option value="engaged">Engaged</option>
@@ -127,7 +127,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Edit') }}
+                                    Edit
                                 </button>
                             </div>
                         </div>

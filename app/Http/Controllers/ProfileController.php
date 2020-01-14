@@ -104,7 +104,7 @@ class ProfileController extends Controller
             'banner' => '',
             'description' => '',
             'city' => '',
-            'relationshipstatus' => '',
+            'relationship' => '',
             'work' => '',
             'education' => '',
             
@@ -115,7 +115,8 @@ class ProfileController extends Controller
             // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             // $image->save();
             
-            auth()->user()->profile->update($data);
+            dd($user->id);
+            auth()->user()->profile->update();
 
             return redirect("/profile/{$user->id}");
     }
