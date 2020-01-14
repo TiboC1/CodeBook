@@ -65,8 +65,8 @@ class ProfileController extends Controller
         
         $target= Profile::find($user->id);
         
-        dd($target);
-        //return view("/profile/show", compact('user', 'profile', 'target'));
+       //dd($target);
+        return view("/profile/show", compact('user', 'profile', 'target'));
     }
 
     /**
