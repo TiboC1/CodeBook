@@ -21,9 +21,9 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(User $user, Profile $profile)
     {
-        return view('/main/home');
+        return view('/main/home', compact('user', 'profile'));
     }
 
     /**
@@ -42,7 +42,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user, Profile $profile)
     {
         $data = $request->validate([
             'title' => 'required|max:255',
@@ -61,10 +61,9 @@ class PostController extends Controller
         auth()->user()->post()->create([
             'title' => $data['title'],
             'body' => $data['body'],
-            'image' => $imagePath,
         ]);
 
-        return view('/main/home', auth()->user()->id);
+        return view('/main/home', compact('profile', 'user'));
     }
 
     /**
@@ -113,6 +112,6 @@ class PostController extends Controller
 
     public function amountOfPosts(Post $post) 
     {
-        return $this->profile()->post()->count();
+        return $this->user()->post()->count();
     }
 }

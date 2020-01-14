@@ -23,17 +23,17 @@
 
 <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
-            <form action="{{ route('post.create') }}" method="post">
+            <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" value="{{ Session::token() }}" name="_token">
                 <div class="form-group">
-                    <textarea class="form-control" name="title" id="new-post" rows="5" placeholder="Your Post"></textarea>
-                </div>
-                
-                <input type="hidden" value="{{ Session::token() }}" name="_token">
-                <input type="file" name= "image" class="form-control" placeholder="Image">
-            <div class="input-group-append">
-            <button type="submit" class="btn btn-primary">Create Post</button>
-            
-                      </div>
+                    <label for="title">Post Title</label>
+                    <input type="text" id="title" name="title">
+
+                    <textarea class="form-control" name="body" rows="5" placeholder="Your Post"></textarea>
+                    <input type="file" name= "image" class="form-control" placeholder="Image">
+                </div>    
+                <input type="submit" class="btn btn-primary" value="Post">
             </form>
         
          </div>
