@@ -18,7 +18,9 @@ class ProfileController extends Controller
      */
     
      public function __construct(){
+
         $this->middleware('auth');
+
         }
 
      public function index()
@@ -81,13 +83,15 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show(Profile $profile, User $user)
     {
+        
         $target= Profile::find($profile->id);
         //dd($target);
         // return view('profile',[
         //     'profile'=>$target
         // ]);
+        return view("/profile/show", compact('user', 'profile'));
     }
 
     /**
