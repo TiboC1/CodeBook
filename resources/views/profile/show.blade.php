@@ -56,9 +56,23 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                <div class="userinfo">
-                    <h4>user info</h4>
-                    <p>hello world</p>
+                <div class="container">
+                    <div class="userinfo">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                <h1>Info</h1>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Born: <span {{$user->dob}}></span></li>
+                                <li class="list-group-item">Gender: </li>
+                                <li class="list-group-item">Lives in: </li>
+                                <li class="list-group-item">Education: </li>
+                                <li class="list-group-item">Works at: </li>
+                                <li class="list-group-item">Relationshipstatus: </li>
+    <!-- upload description here -->
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -70,18 +84,28 @@
                 <div class="advertisement">
                     <div class="container">
                         <div class="row">
-                            <h4>Ads</h4>
+                            <div class="card" style="width: 18rem;">
+                                <img src="/images/5ac4c81f132ad.jpeg" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                        <p class="card-text">First ad</p>
+                                    </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <img src="/images/5ac4c81f132ad.jpeg">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/images/maxresdefault.jpg" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                        <p class="card-text">Second ad</p>
+                                    </div>
+                            </div>                     
                         </div>
                         <div class="row">
-                            <img src="/images/maxresdefault.jpg">
-
-                        </div>
-                        <div class="row">
-                            <img src="/images/o0pfd.jpg">
-
+                            <div class="card" style="width: 18rem;">
+                                <img src="/images/o0pfd.jpg" class="card-img-top" alt="">
+                                    <div class="card-body">
+                                        <p class="card-text">Third ad</p>
+                                    </div>
+                            </div>
                         </div>
                     </div>
                 </div>
