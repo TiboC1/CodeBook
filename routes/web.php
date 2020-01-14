@@ -17,15 +17,16 @@ Route::get('/', function () {
 
 Route::post('/profile', 'ProfileController@store');
 
-Route::get('/main/home', 'PostController@index')->name('home');
+Route::get('/main/home', 'PostController@index')->name('dashboard');
 Route::get('/index', 'ProfileController@index');
-Route::get('/profile/create','ProfileController@create');
-Route::get('/profile/{profile}', 'ProfileController@show');
+
+Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 Route::get('/profile/{user}/edit','ProfileController@edit');
-Route::patch('/profile/{user}', 'ProfileController@update')->name('profile');
+Route::get('/profile/{user}/destroy', 'ProfileController@destroy');
+Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.edit');
 
 
-Route::post('/main/home', 'PostController@store')->name('create');
+Route::post('/main/home', 'PostController@store')->name('post.create');
 
 
 Auth::routes();

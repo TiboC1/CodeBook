@@ -4,8 +4,9 @@
 use App\Profile;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Profile::class, function (Faker $faker) {
     return [
+        'nickname'=>'name',
         'dob'=>now(),
         'gender'=>'other',
         'description'=>'I am an interessting person',
