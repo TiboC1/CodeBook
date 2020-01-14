@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Edit profile') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/profile/{{$user->id}}">
+                    <form method="POST" enctype='multipart/form-data' action="/profile/{{$user->id}}">
                         @csrf
                         @method('PATCH')
 
@@ -57,8 +57,8 @@
 
                             <div class="col-md-6">
                                 <textarea id = "myTextArea"
-                  rows = "6"
-                  cols = "34">{{$profile->description}}</textarea>
+                                rows = "6"
+                                cols = "34">{{$profile->description}}</textarea>
                                
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                             <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('Nickname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nickname" type="text" class="" name="nickname" value="">
+                                <input id="nickname" type="text" class="" name="nickname" value="{{$profile->nickname}}">
 
                             
                             </div>

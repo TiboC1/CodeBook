@@ -60,12 +60,12 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Profile $profile,User $user)
     {
         
         $target= Profile::find($user->id);
-        // dd($target);
-        return view("/profile/show", compact('user', 'profile'));
+          dd($target);
+       // return view("/profile/show", compact('user', 'profile'));
     }
 
     /**
@@ -76,7 +76,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile, User $user)
     {
-
+        $profile= Profile::find($user->id);
         return view('/profile/edit', compact('user','profile'));
     }
 
@@ -105,11 +105,13 @@ class ProfileController extends Controller
             'education' => '',
             
             ]);
+
+           // dd($data);
             
-            //$image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-            //$image->save();
+            // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            // $image->save();
             
-            auth()->user()->profile->update();
+            auth()->user()->profile->update($data);
 
             return redirect("/profile/{$user->id}");
     }
@@ -122,6 +124,6 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        //
+     //
     }
 }
