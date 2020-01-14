@@ -49,30 +49,6 @@ class ProfileController extends Controller
      */
     public function store(Request $request, User $user)
     {
-        dump(request()->all());
-        // $validatedData=$request->validate([
-        //     'dob'=> 'date_format:DD-MM-YYYY|before:today',
-        //     'avatar'=>'image',
-        //     'banner' =>'image',
-            
-        //     ]);
-            
-            // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-            // $image->save();
-            
-            //auth()->user()->posts()->update();
-            $profile= new Profile;
-            $profile->user_id=Auth::id();
-            // $profile->dob=request('dob');            
-            // $profile->gender=request('gender');
-            // $profile->avatar=request('avatar');
-            // $profile->banner=request('banner');
-            // $profile->description=request('description');
-            // $profile->city=request('city');
-            // $profile->relationship=request('relationship');
-            // $profile->work=request('work');
-            // $profile->education=request('education');
-            $profile->save();
 
             return view('profile', compact('user', 'profile'));
 
@@ -84,14 +60,11 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile, User $user)
+    public function show(User $user)
     {
         
-        $target= Profile::find($profile->id);
-        dd($target);
-        // return view('profile',[
-        //     'profile'=>$target
-        // ]);
+        $target= Profile::find($user->id);
+        // dd($target);
         return view("/profile/show", compact('user', 'profile'));
     }
 
