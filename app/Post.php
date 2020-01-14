@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function profile()
+
+    protected $guarded = [];
+
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
