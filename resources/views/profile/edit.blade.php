@@ -19,14 +19,14 @@
 
                             <div class="form-group row">
                             <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
-                            <input type="file" name="avatar" placeholder="Upload an avatar" value="{{$profile->avatar}}" /><br />
+                            <input type="file" name="avatar" placeholder="Upload an avatar" value="{{ old('avatar') ?? $profile->avatar}}" /><br />
                                                     
                             </div>
                             <div class="form-group row">
 
                             <label for="banner" class="col-md-4 col-form-label text-md-right">{{ __('Banner') }}</label>
                             
-                            <input type="file" name="banner" placeholder="Upload a banner" value="{{$profile->banner}}"/><br />
+                            <input type="file" name="banner" placeholder="Upload a banner" value="{{ old('banner') ?? $profile->banner}}"/><br />
                         </div>
 
                         <div class="form-group row">
@@ -34,10 +34,10 @@
 
 
                             <div class="col-md-6">
-                                <select id="gender" name="gender">
-                                <option value="undefined">Undefined</option>
-                                <option value="female">Female</option>
-                                <option value="male">Male</option>
+                                <select id="gender" name="gender" valua="{{ old('gender') ?? $profile->gender}}">
+                                <option value="undefined"{{ $profile->gender == 'undefined' ? 'selected' : '' }}>Undefined</option>
+                                <option value="female"{{ $profile->gender == 'female' ? 'selected' : '' }}>Female</option>
+                                <option value="male"{{ $profile->gender == 'male' ? 'selected' : '' }}>Male</option>
                                 </select>
                                 
                             </div>
@@ -56,7 +56,7 @@
                             <label for="description"  class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id = "description" name="description"
+                                <textarea id = "description" name="description" value="{{ old('description') ?? $profile->description}}"
                                 rows = "6"
                                 cols = "34">{{$profile->description}}</textarea>
                                
@@ -88,7 +88,7 @@
                             <label for="work" class="col-md-4 col-form-label text-md-right">{{ __('Work') }}</label>
 
                             <div class="col-md-6">
-                                <input id="work" type="text" class="" name="work">
+                                <input id="work" type="text" class="" name="work" value="{{$profile->work}}">
 
                             </div>
                         </div>
@@ -109,14 +109,14 @@
                         <div class="form-group row">
                             <label for="relationship" class="col-md-4 col-form-label text-md-right">{{ __('Relationship status') }}</label>
 
-
+                            
                             <div class="col-md-6">
                                 <select id="relationship" name="relationship">
-                                <option value="single">Single</option>
-                                <option value="dating">Dating</option>
-                                <option value="engaged">Engaged</option>
-                                <option value="married">Married</option>
-                                <option value="complicated">It's complicated</option>
+                                <option value="single"{{ $profile->relationship == 'single' ? 'selected' : '' }}>Single</option>
+                                <option value="dating"{{ $profile->relationship == 'date' ? 'selected' : '' }}>Dating</option>
+                                <option value="engaged"{{ $profile->relationship == 'engaged' ? 'selected' : '' }}>Engaged</option>
+                                <option value="married"{{ $profile->relationship == 'married' ? 'selected' : '' }}>Married</option>
+                                <option value="complicated"{{ $profile->relationship == 'complicated' ? 'selected' : '' }}>It's complicated</option>
                                 </select>
                                 
                             </div>
