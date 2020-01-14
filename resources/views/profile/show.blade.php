@@ -61,14 +61,15 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-header">
                                 <h1>Info</h1>
+                                <p>{{$user->profile->dob}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Born: <span {{$user->dob}}></span></li>
-                                <li class="list-group-item">Gender: </li>
-                                <li class="list-group-item">Lives in: </li>
-                                <li class="list-group-item">Education: </li>
-                                <li class="list-group-item">Works at: </li>
-                                <li class="list-group-item">Relationshipstatus: </li>
+                                <li class="list-group-item">Born: <span> {{$user->profile->dob}}</span></li>
+                                <li class="list-group-item">Gender: <span> {{$user->profile->gender}}</span></li>
+                                <li class="list-group-item">Lives in: <span> {{$user->profile->city}}</span></li>
+                                <li class="list-group-item">Education: <span> {{$user->profile->education}}</span></li>
+                                <li class="list-group-item">Works at: <span> {{$user->profile->work}}</span></li>
+                                <li class="list-group-item">Relationshipstatus: <span> {{$user->profile->relationship}}</span></li>
     <!-- upload description here -->
                             </ul>
                         </div>
