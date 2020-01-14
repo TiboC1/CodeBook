@@ -86,12 +86,13 @@ class ProfileController extends Controller
     public function show(Profile $profile, User $user)
     {
         
-        $target= Profile::find($profile->id);
+        $target= Profile::find($user->id);
+        
         //dd($target);
         // return view('profile',[
         //     'profile'=>$target
         // ]);
-        return view("/profile/show", compact('user', 'profile'));
+        return view("/profile/show", compact('user', 'profile', 'target'));
     }
 
     /**
