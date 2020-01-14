@@ -46,25 +46,25 @@ class PostController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|max:255',
-            'intro' => 'max255',
             'body' => '',
             'image' => 'image'
         ]);
-        dd($data);
 
-        $imagePath = request('image')->store('uploads', 'public');
+        /*if ($data['image'] != null){
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-        $image->save();
+            $imagePath = request('image')->store('uploads', 'public');
 
-        auth()->user()->posts()->create([
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+            $image->save();
+        };*/
+
+        auth()->user()->post()->create([
             'title' => $data['title'],
-            'intro' => $data['intro'],
             'body' => $data['body'],
             'image' => $imagePath,
         ]);
 
-        return view('/main/home');
+        return view('/main/home', auth()->user()->id);
     }
 
     /**
