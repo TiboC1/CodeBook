@@ -25,20 +25,27 @@
          
             <div class="card">
                   <div class="card-header">
-                  <form action="{{ route('create') }}" method="post">
+                  <div class="input-group">
+                      <input type="text" name= "title" class="form-control" placeholder="Title">
+                      
+                     
+                    </div>
+                    <form action="{{ route('create') }}" method="post">
                 <div class="form-group">
                     <textarea class="form-control" name="body" id="new-post" rows="2" placeholder="Your Post"></textarea>
                 </div>
                 
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
+                <input type="file" name= "image" class="form-control" placeholder="Image">
+            <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Create Post</button>
+            
+                      </div>
             </form>
-                    <!-- <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Message">
-                      <div class="input-group-append">
-                      </div> -->
-                      <button type="submit" class="btn btn-primary">Create Post</button>
-                    </div>
-                  </div>
+        
+         </div>
+                  
+                 
                   <ul class="list-group card-list-group">
                     <li class="list-group-item py-5">
                       <div class="media">
