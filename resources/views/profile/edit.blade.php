@@ -74,6 +74,15 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="nickname" class="col-md-4 col-form-label text-md-right">{{ __('Nickname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nickname" type="text" class="" name="nickname" value="">
+
+                            
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="work" class="col-md-4 col-form-label text-md-right">{{ __('Work') }}</label>
