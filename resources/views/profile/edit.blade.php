@@ -34,7 +34,7 @@
 
 
                             <div class="col-md-6">
-                                <select>
+                                <select id="gender" name="gender">
                                 <option value="undefined">Undefined</option>
                                 <option value="female">Female</option>
                                 <option value="male">Male</option>
@@ -47,16 +47,16 @@
                             <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="dob" type="date" name="" value=>
+                                <input id="dob" type="date" name="dob" value=>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                            <label for="description" name="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id = "myTextArea"
+                                <textarea id ="description"
                   rows = "6"
                   cols = "34">Your text here</textarea>
                                
@@ -111,7 +111,7 @@
 
 
                             <div class="col-md-6">
-                                <select>
+                                <select id="relationshipstatus" name="relationshipstatus">
                                 <option value="single">Single</option>
                                 <option value="dating">Dating</option>
                                 <option value="engaged">Engaged</option>
