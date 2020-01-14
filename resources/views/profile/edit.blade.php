@@ -53,10 +53,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="description" name="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                            <label for="description"  class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id = "myTextArea"
+                                <textarea id = "description" name="description"
                                 rows = "6"
                                 cols = "34">{{$profile->description}}</textarea>
                                
@@ -107,7 +107,7 @@
                         
 
                         <div class="form-group row">
-                            <label for="relationshipstatus" class="col-md-4 col-form-label text-md-right">{{ __('Relationship status') }}</label>
+                            <label for="relationship" class="col-md-4 col-form-label text-md-right">{{ __('Relationship status') }}</label>
 
 
                             <div class="col-md-6">

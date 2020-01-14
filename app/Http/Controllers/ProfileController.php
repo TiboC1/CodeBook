@@ -65,11 +65,8 @@ class ProfileController extends Controller
         
         $target= Profile::find($user->id);
         
-        //dd($target);
-        // return view('profile',[
-        //     'profile'=>$target
-        // ]);
-        return view("/profile/show", compact('user', 'profile', 'target'));
+        dd($target);
+        //return view("/profile/show", compact('user', 'profile', 'target'));
     }
 
     /**
@@ -93,30 +90,28 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile, User $user)
     {
-
         $this->authorize('update',$user->profile);
-
+        
         $data = request()->validate([
-            'nickname' => '',
-            'dob' => 'date_format:DD-MM-YYYY|before:today',
-            'gender' => '',
-            'avatar' => '',
-            'banner' => '',
-            'description' => '',
-            'city' => '',
-            'relationship' => '',
-            'work' => '',
-            'education' => '',
+             'nickname' => '',
+             'dob' => 'before:today',
+             'gender' => '',
+             'avatar' => '',
+             'banner' => '',
+             'description' => '',
+             'city' => '',
+             'relationship' => '',
+             'work' => '',
+             'education' => ''
             
             ]);
-
-           // dd($data);
+            
+            //dd($data);
             
             // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             // $image->save();
             
-            dd($user->id);
-            auth()->user()->profile->update();
+            auth()->user()->profile->update($data);
 
             return redirect("/profile/{$user->id}");
     }
