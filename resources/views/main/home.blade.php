@@ -20,7 +20,6 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <div class="col-lg-8">
             <header><h3>What is on your mind?</h3></header>
          
@@ -34,13 +33,13 @@
                     <form action="{{ route('create') }}" method="post">
                 <div class="form-group">
                     <textarea class="form-control" name="body" id="new-post" rows="2" placeholder="Your Post"></textarea>
-=======
+
 <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
             <form action="{{ route('post.create') }}" method="post">
                 <div class="form-group">
                     <textarea class="form-control" name="title" id="new-post" rows="5" placeholder="Your Post"></textarea>
->>>>>>> 43f71b0039555e9195c5db8b7cdc8e778faa7312
+
                 </div>
                 
                 <input type="hidden" value="{{ Session::token() }}" name="_token">
