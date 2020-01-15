@@ -21,9 +21,11 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user, Profile $profile)
+    public function index(User $user)
     {
-        return view('/main/home', compact('user', 'profile'));
+
+        
+        return view('/main/home', compact('user'));
     }
 
     /**
@@ -47,16 +49,16 @@ class PostController extends Controller
         $data = $request->validate([
             'title' => 'required|max:255',
             'body' => '',
-            'image' => 'image'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        /*if ($data['image'] != null){
+        if (array_key_exists("image",$data)){
 
             $imagePath = request('image')->store('uploads', 'public');
 
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
-        };*/
+        };
 
         auth()->user()->post()->create([
             'title' => $data['title'],

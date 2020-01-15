@@ -17,14 +17,13 @@ Route::get('/', function () {
 
 Route::post('/profile', 'ProfileController@store');
 
-Route::get('/main/home', 'PostController@index')->name('dashboard');
+Route::get('/main/{user}', 'PostController@index')->name('dashboard');
 Route::get('/index', 'ProfileController@index');
 
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 Route::get('/profile/{user}/edit','ProfileController@edit');
-Route::get('/profile/{user}/destroy', 'ProfileController@destroy');
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.edit');
-
+Route::get('/profile/{user}/destroy', 'ProfileController@destroy');
 
 Route::post('/main/home', 'PostController@store')->name('post.create');
 

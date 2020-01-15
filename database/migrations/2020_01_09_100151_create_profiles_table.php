@@ -26,7 +26,11 @@ class CreateProfilesTable extends Migration
             $table->string('relationship')->nullable();
             $table->string('work')->nullable();
             $table->string('education')->nullable();
-
+            $table->boolean('pri-dob')->default(0)->change();   
+            $table->boolean('pri-city')->default(0)->change();   
+            $table->boolean('pri-relationship')->default(0)->change();   
+            $table->boolean('pri-work')->default(0)->change();   
+            $table->boolean('pri-education')->default(0)->change();   
             $table->timestamps();
         });
     }
