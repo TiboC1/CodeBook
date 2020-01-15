@@ -56,7 +56,7 @@
                             <label for="description"  class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id = "description" name="description" value="{{ old('description') ?? $profile->description}}"
+                                <textarea id = "description" name="description" value="{{ $profile->description}}"
                                 rows = "6"
                                 cols = "34">{{$profile->description}}</textarea>
                                
