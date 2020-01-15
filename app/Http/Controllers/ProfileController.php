@@ -96,8 +96,8 @@ class ProfileController extends Controller
              'nickname' => '',
              'dob' => 'before:today',
              'gender' => '',
-             'avatar' => '',
-             'banner' => '',
+             'avatar' => 'image',
+             'banner' => 'image',
              'description' => '',
              'city' => '',
              'relationship' => '',
@@ -120,8 +120,8 @@ class ProfileController extends Controller
                 $image->save();
                 $data = array_merge($data, ['avatar' => $imagePath]);
             }
-            
-            auth()->user()->profile->update($data);
+            dd($data);
+            auth()->user()->profile->update();
 
             return redirect("/profile/{$user->id}");
     }

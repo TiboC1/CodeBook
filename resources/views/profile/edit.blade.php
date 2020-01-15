@@ -34,7 +34,7 @@
 
 
                             <div class="col-md-6">
-                                <select id="gender" name="gender" valua="{{ old('gender') ?? $profile->gender}}">
+                                <select id="gender" name="gender" value="{{ old('gender') ?? $profile->gender}}">
                                 <option value="undefined"{{ $profile->gender == 'undefined' ? 'selected' : '' }}>Undefined</option>
                                 <option value="female"{{ $profile->gender == 'female' ? 'selected' : '' }}>Female</option>
                                 <option value="male"{{ $profile->gender == 'male' ? 'selected' : '' }}>Male</option>
@@ -112,11 +112,11 @@
                             
                             <div class="col-md-6">
                                 <select id="relationship" name="relationship">
-                                <option value="single"{{ $profile->relationship == 'single' ? 'selected' : '' }}>Single</option>
-                                <option value="dating"{{ $profile->relationship == 'date' ? 'selected' : '' }}>Dating</option>
-                                <option value="engaged"{{ $profile->relationship == 'engaged' ? 'selected' : '' }}>Engaged</option>
-                                <option value="married"{{ $profile->relationship == 'married' ? 'selected' : '' }}>Married</option>
-                                <option value="complicated"{{ $profile->relationship == 'complicated' ? 'selected' : '' }}>It's complicated</option>
+                                <option value="single" {{ $profile->relationship == 'single' ? 'selected' : '' }}>Single</option>
+                                <option value="dating" {{ $profile->relationship == 'date' ? 'selected' : '' }}>Dating</option>
+                                <option value="engaged" {{ $profile->relationship == 'engaged' ? 'selected' : '' }}>Engaged</option>
+                                <option value="married" {{ $profile->relationship == 'married' ? 'selected' : '' }}>Married</option>
+                                <option value="complicated" {{ $profile->relationship == 'complicated' ? 'selected' : '' }}>It's complicated</option>
                                 </select>
                                 
                             </div>

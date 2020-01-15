@@ -50,7 +50,7 @@ class PostController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        if (array_key_exists("Banana",$array1)){
+        if (array_key_exists("image",$data)){
 
             $imagePath = request('image')->store('uploads', 'public');
 
