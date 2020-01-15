@@ -145,6 +145,10 @@
             </div>
         </div>
     </div>
+
+    @foreach ($user->post as $post)
+    <p>lol</p>
+    @endforeach
 </body>
 
 @endsection

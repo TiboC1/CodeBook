@@ -142,6 +142,13 @@
                             </div>
                         </div>
                     </form>
+                    <form action="/profile/{{$user->id}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="delete" />
+                    <h3 class="alert">Delete Profile</h3>
+                    <input type="submit">
+                    
+                    </form>
                 </div>
             </div>
         </div>

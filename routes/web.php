@@ -23,7 +23,7 @@ Route::get('/index', 'ProfileController@index');
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
-Route::get('/profile/{user}/destroy', 'ProfileController@destroy');
+Route::delete('/profile/{user}', 'ProfileController@destroy')->name('profile.delete');
 
 Route::post('/main/home', 'PostController@store')->name('post.create');
 
