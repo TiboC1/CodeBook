@@ -10538,7 +10538,7 @@ a.text-dark:focus {
 }
 
 .cover-container {
-    background-image: url(/images/venice.jpg);
+    background-image: cover;
 }
 
 .fb-profile-block-thumb {
