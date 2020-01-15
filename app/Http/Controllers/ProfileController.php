@@ -102,7 +102,12 @@ class ProfileController extends Controller
              'city' => '',
              'relationship' => '',
              'work' => '',
-             'education' => ''
+             'education' => '',
+             'pri-dob' => '',
+             'pri-city' => '',
+             'pri-relationship' => '',
+             'pri-work' => '',
+             'pri-education' => '',
             
             ]);
             

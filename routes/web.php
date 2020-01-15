@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::post('/profile', 'ProfileController@store');
 
-Route::get('/main/home', 'PostController@index')->name('dashboard');
+Route::get('/main/{user}', 'PostController@index')->name('dashboard');
 Route::get('/index', 'ProfileController@index');
 
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');

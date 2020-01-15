@@ -13,8 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <p>{{$user->id}}</p>
+                    @foreach ($user->post as $post)
+                      <p>lol</p>
+                    @endforeach
                 </div>
             </div>
         </div>
