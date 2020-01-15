@@ -35,8 +35,11 @@
                         </a>
                     </div>
                     <div class="profile-name">
-                        <h2>first/last</h2>
-                        <a href="/profile/{{$user->id}}/edit" class="btn btn-info" role="button">Edit profile</a>
+
+                        <h2>{{$user->profile->nickname}}</h2>
+                        <a href="" class="btn btn-info" role="button">Edit profile</a>
+                        <span class="friendship"><a href="" class="btn btn-info" role="button">Want to be my friend?</a></span>
+
                     </div>
 
                     <div class="fb-profile-block-menu">
@@ -55,7 +58,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="container">
                     <div class="userinfo">
                         <div class="card" style="width: 18rem;">
@@ -69,18 +72,52 @@
                                 <li class="list-group-item">Education: <span> {{$user->profile->education}}</span></li>
                                 <li class="list-group-item">Works at: <span> {{$user->profile->work}}</span></li>
                                 <li class="list-group-item">Relationshipstatus: <span> {{$user->profile->relationship}}</span></li>
+                                <li class="list-group-item">Description: <span> {{$user->profile->description}}</span></li>
     <!-- upload description here -->
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="feed">
-                    <h4>post & feeds</h4>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <header><h3>What do you have to say?</h3></header>
+                            <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
+            @csrf
+                                <input type="hidden" value="{{ Session::token() }}" name="_token">
+                                    <div class="form-group">
+                                        <label for="title">Post Title</label>
+                                            <input type="text" id="title" name="title">
+                                                <textarea class="form-control" name="body" rows="5" placeholder="Your Post"></textarea>
+                                                    <input type="file" name= "image" class="form-control" placeholder="Image">
+                                    </div>    
+                                <input type="submit" class="btn btn-primary" value="Post">
+                            </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card col-md-12">
+                         <h2>friends name and avatar</h2>
+                             <div class="card-body">
+                                 <p class="card-text">post</p>
+                             </div>
+                    </div>
+                    <div class="card col-md-12">
+                         <h2>friends name and avatar</h2>
+                             <div class="card-body">
+                                 <p class="card-text">post</p>
+                             </div>
+                    </div>
+                    <div class="card col-md-12">
+                         <h2>friends name and avatar</h2>
+                             <div class="card-body">
+                                 <p class="card-text">post</p>
+                             </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="advertisement">
                     <div class="container">
                         <div class="row">
