@@ -31,14 +31,13 @@
                     <div class="fb-profile-block-thumb cover-container"></div>
                     <div class="profile-img">
                         <a href="#">
-                            <img src="/images/frankenprofile.jpg" alt="" class="rounded-circle" title="">
+                            <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
                         </a>
                     </div>
                     <div class="profile-name">
                         <h2>first/last</h2>
                         <a href="" class="btn btn-info" role="button">Edit profile</a>
                     </div>
-
                     <div class="fb-profile-block-menu">
                         <div class="block-menu">
                             <ul>
@@ -59,6 +58,7 @@
                 <div class="userinfo">
                     <h4>user info</h4>
                     <p>hello world</p>
+
                 </div>
             </div>
             <div class="col-md-4">

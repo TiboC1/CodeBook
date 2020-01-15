@@ -9,6 +9,7 @@ use App\Post;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -60,7 +61,7 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile,User $user)
+    public function show(Profile $profile, User $user)
     {
         
         $target= Profile::find($user->id);
@@ -106,8 +107,19 @@ class ProfileController extends Controller
             ]);
             
             
-            // $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
-            // $image->save();
+            if(request('banner')){
+                $bannerPath = request('banner')->store('profile', 'public');
+                $banner = Image::make(public_path("storage/images/{$bannerPath}"))->fit(1000, 1000);
+                $banner->save();
+                $data = array_merge($data, ['banner' => $bannerPath]);
+            }
+
+            if(request('avatar')){
+                $imagePath = request('avatar')->store('profile', 'public');
+                $image = Image::make(public_path("storage/images/{$imagePath}"))->fit(1000, 1000);
+                $image->save();
+                $data = array_merge($data, ['avatar' => $imagePath]);
+            }
             
             auth()->user()->profile->update($data);
 
