@@ -36,7 +36,7 @@
                     </div>
                     <div class="profile-name">
                         <h2>first/last</h2>
-                        <a href="" class="btn btn-info" role="button">Edit profile</a>
+                        <a href="/profile/{{$user->id}}/edit" class="btn btn-info" role="button">Edit profile</a>
                     </div>
 
                     <div class="fb-profile-block-menu">
@@ -61,7 +61,6 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-header">
                                 <h1>Info</h1>
-                                <p>{{$user->profile->dob}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Born: <span> {{$user->profile->dob}}</span></li>
