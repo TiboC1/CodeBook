@@ -100,6 +100,7 @@
                          <h2>friends name and avatar</h2>
                              <div class="card-body">
                                  <p class="card-text">post</p>
+                                 <a href="">Like</a>
                              </div>
                     </div>
                     <div class="card col-md-12">
