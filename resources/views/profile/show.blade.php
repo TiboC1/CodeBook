@@ -35,6 +35,7 @@
                         </a>
                     </div>
                     <div class="profile-name">
+
                         <h2>{{$user->profile->nickname}}</h2>
                         <a href="" class="btn btn-info" role="button">Edit profile</a>
                         <span class="friendship"><a href="" class="btn btn-info" role="button">Want to be my friend?</a></span>
