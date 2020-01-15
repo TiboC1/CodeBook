@@ -48,6 +48,8 @@
 
                             <div class="col-md-6">
                                 <input id="dob" type="date" name="dob" value="{{$profile->dob}}">
+                                <input type="radio" id="pri-dob" name="pri-dob" value="0"> Public<br>
+                                <input type="radio" id="pri-dob" name="pri-dob" value="1"> Private<br>
 
                             </div>
                         </div>
@@ -69,6 +71,8 @@
 
                             <div class="col-md-6">
                                 <input id="city" type="text" class="" name="city" value="{{$profile->city}}">
+                                <input type="radio" id="pri-city" name="pri-city" value="0"> Public<br>
+                                <input type="radio" id="pri-city" name="pri-city" value="1"> Private<br>
 
                             
                             </div>
@@ -89,6 +93,8 @@
 
                             <div class="col-md-6">
                                 <input id="work" type="text" class="" name="work" value="{{$profile->work}}">
+                                <input type="radio" id="pri-work" name="pri-work" value="0"> Public<br>
+                                <input type="radio" id="pri-work" name="pri-work" value="1"> Private<br>
 
                             </div>
                         </div>
@@ -101,6 +107,8 @@
 
                             <div class="col-md-6">
                                 <input id="education" type="text" class="" name="education" value="{{$profile->education}}">
+                                <input type="radio" id="pri-education" name="pri-education" value="0"> Public<br>
+                                <input type="radio" id="pri-education" name="pri-education" value="1"> Private<br>
                             </div>
                         </div>
 
@@ -118,6 +126,8 @@
                                 <option value="married"{{ $profile->relationship == 'married' ? 'selected' : '' }}>Married</option>
                                 <option value="complicated"{{ $profile->relationship == 'complicated' ? 'selected' : '' }}>It's complicated</option>
                                 </select>
+                                <input type="radio" id="pri-relationship" name="pri-relationship" value="0"> Public<br>
+                                <input type="radio" id="pri-relationship" name="pri-relationship" value="1"> Private<br>
                                 
                             </div>
                         </div>
@@ -137,15 +147,7 @@
         </div>
     </div>
 </div>
-<div class='container'>
-<div class='row justify-content-start'>
-<img src="/frankenprofile.jpg">
 
-</div>
-
-
-
-</div>
 
 
 
