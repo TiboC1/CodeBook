@@ -96,8 +96,8 @@ class ProfileController extends Controller
              'nickname' => '',
              'dob' => 'before:today',
              'gender' => '',
-             'avatar' => 'image',
-             'banner' => 'image',
+             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
+             'banner' => 'image|mimes:jpeg,png,jpg,gif,svg',
              'description' => '',
              'city' => '',
              'relationship' => '',
@@ -111,22 +111,20 @@ class ProfileController extends Controller
             
             ]);
             
-            
             if(request('banner')){
                 $bannerPath = request('banner')->store('profile', 'public');
-                $banner = Image::make(public_path("storage/images/{$bannerPath}"))->fit(1000, 1000);
+                $banner = Image::make(public_path("storage/public/{$bannerPath}"))->fit(1000, 1000);
                 $banner->save();
                 $data = array_merge($data, ['banner' => $bannerPath]);
             }
 
             if(request('avatar')){
                 $imagePath = request('avatar')->store('profile', 'public');
-                $image = Image::make(public_path("storage/images/{$imagePath}"))->fit(1000, 1000);
+                $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
                 $image->save();
                 $data = array_merge($data, ['avatar' => $imagePath]);
             }
-            dd($data);
-            auth()->user()->profile->update();
+            auth()->user()->profile->update($data);
 
             return redirect("/profile/{$user->id}");
     }
