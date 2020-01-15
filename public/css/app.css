@@ -10537,8 +10537,8 @@ a.text-dark:focus {
     width: 100%;
 }
 
-.cover-container {
-    background-image: cover;
+.cover-container img {
+    max-width: 100%;
 }
 
 .fb-profile-block-thumb {

@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('dashboard') }}">CodeBook</a>
+                <a class="navbar-brand" href="/main/{user}">CodeBook</a>
             </div>
             
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,6 +31,7 @@
                 <div class="fb-profile-block">
                     
                     <div class="fb-profile-block-thumb cover-container"></div>
+                    <img src="/images/venice.jpg">
                     <div class="profile-img">
                         <a href="#">
                             <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
@@ -39,7 +40,7 @@
                     <div class="profile-name">
 
                         <h2>{{$user->profile->nickname}}</h2>
-                        <a href="" class="btn btn-info" role="button">Edit profile</a>
+                        <a href="{{route('profile.edit', $user)}}" class="btn btn-info" role="button">Edit profile</a>
                         <span class="friendship"><a href="" class="btn btn-info" role="button">Want to be my friend?</a></span>
 
                     </div>
