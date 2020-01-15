@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('dashboard') }}">CodeBook</a>
+                <a class="navbar-brand" href="{{ route('dashboard', '$user') }}">CodeBook</a>
             </div>
             
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,7 +29,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="fb-profile-block">
-                    
                     <div class="fb-profile-block-thumb cover-container"></div>
                     <div class="profile-img">
                         <a href="#">
