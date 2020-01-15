@@ -10636,3 +10636,7 @@ a.text-dark:focus {
 .block-menu ul li:first-child a {
     border-left: 1px solid #e9eaed;
 }
+
+.card-body a {
+    float: right;
+}

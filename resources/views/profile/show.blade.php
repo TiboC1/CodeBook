@@ -13,7 +13,7 @@
                 </button>
                 <a class="navbar-brand" href="{{ route('dashboard') }}">CodeBook</a>
             </div>
-
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -23,6 +23,8 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+</header>
+<body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -96,12 +98,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="card col-md-12">
-                         <h2>friends name and avatar</h2>
-                             <div class="card-body">
-                                 <p class="card-text">post</p>
-                             </div>
-                    </div>
+                   
+
                     <div class="card col-md-12">
                          <h2>friends name and avatar</h2>
                              <div class="card-body">
@@ -148,7 +146,6 @@
             </div>
         </div>
     </div>
-</header>
-
+</body>
 
 @endsection
