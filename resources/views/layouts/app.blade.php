@@ -82,5 +82,6 @@
     <a href="https://becode.org/"> BeCode.org</a>
   </div>
   </footer>
+  <script src="{{ asset('js/custom.js') }}" defer></script>
 </body>
 </html>
