@@ -49545,6 +49545,8 @@ Vue.component('FollowButton', __webpack_require__(/*! ./components/FollowButton.
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+Vue.component('follow-button', __webpack_require__(/*! ./components/FollowButton.vue */ "./resources/js/components/FollowButton.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
