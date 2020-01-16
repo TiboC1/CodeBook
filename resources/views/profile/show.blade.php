@@ -130,15 +130,7 @@
         </div>
     </div>
 
-    <button class="btn btn-info btn-sm action-follow" data-id="{{ $user->id }}">
-        <strong>
-            @if(auth()->user()->isFollowing($user))
-                UnFollow
-            @else
-                Follow
-            @endif
-        </strong>
-    </button>
+    
     <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
     <p>{{$followerCount}}</p>
     <p>{{$followingCount}}</p>
