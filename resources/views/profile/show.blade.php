@@ -38,7 +38,7 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-header">
                                 <h1>Info</h1>
-                                <p>{{$followerCount}}</p>
+    <p>{{$followerCount}}</p>
     <p>{{$followingCount}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
