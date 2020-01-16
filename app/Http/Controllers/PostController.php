@@ -46,11 +46,15 @@ class PostController extends Controller
      */
     public function store(Request $request, User $user, Profile $profile)
     {
+        // validate the data from form
+
         $data = $request->validate([
             'title' => 'required|max:255',
             'body' => '',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+
+        // if the user uploads an image in post
 
         if (array_key_exists("image",$data)){
 
@@ -60,10 +64,14 @@ class PostController extends Controller
             $image->save();
         };
 
+        // persist to database
+
         auth()->user()->post()->create([
             'title' => $data['title'],
             'body' => $data['body'],
         ]);
+
+        // return view
 
         return view('/main/home', compact('profile', 'user'));
     }
@@ -112,8 +120,5 @@ class PostController extends Controller
     {
     }
 
-    public function amountOfPosts(Post $post) 
-    {
-        return $this->user()->post()->count();
-    }
+    
 }
