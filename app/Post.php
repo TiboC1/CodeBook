@@ -13,6 +13,8 @@ class Post extends Model
 
     protected $guarded = [];
 
+    //link to user
+
     public function user()
     {
         return $this->belongsTo(User::class);

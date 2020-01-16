@@ -64,9 +64,8 @@ class ProfileController extends Controller
     public function show(Profile $profile, User $user)
     {
         
-        $target= Profile::find($user->id);
-        
-        return view("/profile/show", compact('user', 'profile', 'target'));
+            return view("/profile/show", compact('user', 'profile'));
+
     }
 
     /**
@@ -113,14 +112,14 @@ class ProfileController extends Controller
             
             if(request('banner')){
                 $bannerPath = request('banner')->store('profile', 'public');
-                $banner = Image::make(public_path("storage/public/{$bannerPath}"))->fit(1000, 1000);
+                $banner = Image::make(public_path("storage/{$bannerPath}"))->fit(1500, 600);
                 $banner->save();
                 $data = array_merge($data, ['banner' => $bannerPath]);
             }
 
             if(request('avatar')){
                 $imagePath = request('avatar')->store('profile', 'public');
-                $image = Image::make(public_path("storage/public/{$imagePath}"))->fit(1000, 1000);
+                $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
                 $image->save();
                 $data = array_merge($data, ['avatar' => $imagePath]);
             }

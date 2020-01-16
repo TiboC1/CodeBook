@@ -51,14 +51,24 @@ class User extends Authenticatable
         });
     }
 
+    //link to profile
+
     public function profile()
     {
         return $this->hasOne(Profile::class);
     }
 
+    //link to posts
+
     public function post()
     {
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
+    }
+
+    // link to following
+    
+    public function following(){
+        return $this->belongsToMany(Profile::class);
     }
 
 }
