@@ -77,11 +77,11 @@
             @yield('content')
         </main>
     </div>
+
     <footer style="bg-primary;">
-<div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://becode.org/"> BeCode.org</a>
-  </div>
-  </footer>
-  <script src="{{ asset('js/custom.js') }}" defer></script>
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://becode.org/"> BeCode.org</a>
+        </div>
+    </footer>
 </body>
 </html>

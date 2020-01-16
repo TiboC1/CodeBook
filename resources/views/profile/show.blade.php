@@ -38,6 +38,8 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-header">
                                 <h1>Info</h1>
+    <p>{{$followerCount}}</p>
+    <p>{{$followingCount}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Born: <span> {{$user->profile->dob}}</span></li>
@@ -121,8 +123,7 @@
                     @else
                     <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
                     @endif
-    <p>{{$followerCount}}</p>
-    <p>{{$followingCount}}</p>
+    
 </body>
 
 @endsection
