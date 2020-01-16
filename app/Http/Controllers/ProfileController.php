@@ -142,4 +142,14 @@ class ProfileController extends Controller
 
         return redirect('/');
     }
+
+    public function follwUserRequest(Request $request, User $user){
+
+
+        $user = User::find($request->user_id);
+        $response = auth()->user()->toggleFollow($user);
+
+
+        return response()->json(['success'=>$response]);
+    }
 }

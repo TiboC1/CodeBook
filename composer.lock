@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6ebd19b6c3bd608d354ab58fd21f91d",
+    "content-hash": "c7ab6f46cdf4563be2c3648a7c68b7a5",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1312,6 +1312,54 @@
                 "serialize"
             ],
             "time": "2019-11-29T22:36:02+00:00"
+        },
+        {
+            "name": "overtrue/laravel-follow",
+            "version": "1.1.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-follow.git",
+                "reference": "9bf2c02222e1705872a017470efd4ec42f654c5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/9bf2c02222e1705872a017470efd4ec42f654c5a",
+                "reference": "9bf2c02222e1705872a017470efd4ec42f654c5a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "laravel/laravel": "~5.5||~6.0",
+                "mockery/mockery": "1.2.3",
+                "phpunit/phpunit": "~7.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Overtrue\\LaravelFollow\\FollowServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelFollow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "i@overtrue.me"
+                }
+            ],
+            "description": "Laravel 5 User Based System",
+            "time": "2019-09-04T13:18:22+00:00"
         },
         {
             "name": "paragonie/random_compat",
