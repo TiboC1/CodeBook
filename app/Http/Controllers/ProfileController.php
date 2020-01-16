@@ -137,7 +137,6 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile, User $user)
     {
-
         $users = User::findOrFail($user->id);
         $users->profile()->delete();
         $users->delete();
