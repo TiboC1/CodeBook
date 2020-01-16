@@ -139,9 +139,9 @@ class ProfileController extends Controller
     {
 
         $users = User::findOrFail($user->id);
+        $users->profile()->delete();
         $users->delete();
 
-        return redirect('main/welcome' , compact('user'));
-
+        return redirect('main/welcome');
     }
 }

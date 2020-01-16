@@ -142,11 +142,11 @@
                             </div>
                         </div>
                     </form>
-                    <form action="/profile/{{$user->id}}" method="post">
+                    <form action="{{route('profile.delete', $user)}}" method="post">
                     @csrf
-                    <input type="hidden" name="_method" value="delete" />
+                    @method('DELETE')
                     <h3 class="alert">Delete Profile</h3>
-                    <input type="submit">
+                    <input type="submit" value="delete">
                     
                     </form>
                 </div>
