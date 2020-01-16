@@ -19,7 +19,7 @@ class Profile extends Model
     }
 
     public function bannerImage(){
-        $imagePath = ($this->banner) ? $this->banner : 'profile/No_image_available.png';
+        $imagePath = ($this->banner) ? $this->banner : 'profile/No_banner_available.png';
         return '/storage/' . $imagePath;
         
     }
