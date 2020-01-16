@@ -67,17 +67,11 @@ class ProfileController extends Controller
     {
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
 
-        $followerCount = Cache::remember('count.posts.' . $user->id,
-            now()->addSeconds(30),
-            function() use ($user){
-                return $user->profile->followers->count();
-            });
+        $followerCount =  $user->profile->followers->count();
             
-        $followingCount = Cache::remember('count.posts.' . $user->id,
-            now()->addSeconds(30),
-            function() use ($user){
-                return $user->following->count();
-            });
+            
+        $followingCount =  $user->following->count();
+            
 
             $posts = DB::table('posts')->paginate(5);
 
