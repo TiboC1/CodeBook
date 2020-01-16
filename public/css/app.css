@@ -10640,3 +10640,9 @@ a.text-dark:focus {
 .card-body a {
     float: right;
 }
+
+.banner {
+    background-size: cover;
+    height: 600px;
+    width: 1500px;
+}
