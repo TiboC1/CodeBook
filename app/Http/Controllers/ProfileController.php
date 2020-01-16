@@ -141,6 +141,6 @@ class ProfileController extends Controller
         $users->profile()->delete();
         $users->delete();
 
-        return redirect('main/welcome');
+        return redirect('/');
     }
 }
