@@ -82,36 +82,18 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <header><h3>What do you have to say?</h3></header>
-                            <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
-            @csrf
-                                <input type="hidden" value="{{ Session::token() }}" name="_token">
-                                    <div class="form-group">
-                                        <label for="title">Post Title</label>
-                                            <input type="text" id="title" name="title">
-                                                <textarea class="form-control" name="body" rows="5" placeholder="Your Post"></textarea>
-                                                    <input type="file" name= "image" class="form-control" placeholder="Image">
-                                    </div>    
-                                <input type="submit" class="btn btn-primary" value="Post">
-                            </form>
-                    </div>
-                </div>
-                <div class="row">
+                    @foreach ($user->post as $post)
                    
 
                     <div class="card col-md-12">
-                         <h2>friends name and avatar</h2>
+                         <h2>{{$post->title}}</h2>
                              <div class="card-body">
-                                 <p class="card-text">post</p>
+                                 <p class="card-text">{{$post->body}}</p>
                              </div>
                     </div>
-                    <div class="card col-md-12">
-                         <h2>friends name and avatar</h2>
-                             <div class="card-body">
-                                 <p class="card-text">post</p>
-                             </div>
-                    </div>
+
+                    @endforeach
+                    
                 </div>
             </div>
             <div class="col-md-3">
