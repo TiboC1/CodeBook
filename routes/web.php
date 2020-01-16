@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('/main/welcome');
 });
 
+Route::post('follow/{user}', 'FollowsController@store');
 Route::post('/profile', 'ProfileController@store');
 Route::get('/main', 'PostController@index')->name('dashboard');
 Route::get('/main/{user}', 'PostController@index')->name('dashboard');

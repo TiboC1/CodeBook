@@ -63,8 +63,13 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile, User $user)
     {
-        
-            return view("/profile/show", compact('user', 'profile'));
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+        $followerCount = $user->profile->followers->count();
+
+        $followingCount = $user->following->count();
+
+
+            return view("/profile/show", compact('user', 'follows', 'profile', 'followerCount', 'followingCount'));
 
     }
 
@@ -144,13 +149,4 @@ class ProfileController extends Controller
         return redirect('/');
     }
 
-    public function follwUserRequest(Request $request, User $user){
-
-
-        $user = User::find($request->user_id);
-        $response = auth()->user()->toggleFollow($user);
-
-
-        return response()->json(['success'=>$response]);
-    }
 }
