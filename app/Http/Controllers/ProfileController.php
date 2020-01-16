@@ -135,8 +135,12 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy(Profile $profile, User $user)
     {
-     //
+        $users = User::findOrFail($user->id);
+        $users->profile()->delete();
+        $users->delete();
+
+        return redirect('main/welcome');
     }
 }

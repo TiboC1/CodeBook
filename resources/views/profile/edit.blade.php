@@ -142,6 +142,13 @@
                             </div>
                         </div>
                     </form>
+                    <form action="{{route('profile.delete', $user)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <h3 class="alert">Delete Profile</h3>
+                    <input type="submit" value="delete">
+                    
+                    </form>
                 </div>
             </div>
         </div>
