@@ -47,7 +47,6 @@
                                 <li class="list-group-item">Works at: <span> {{$user->profile->work}}</span></li>
                                 <li class="list-group-item">Relationshipstatus: <span> {{$user->profile->relationship}}</span></li>
                                 <li class="list-group-item">Description: <span> {{$user->profile->description}}</span></li>
-    <!-- upload description here -->
                             </ul>
                         </div>
                     </div>
