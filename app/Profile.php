@@ -18,6 +18,12 @@ class Profile extends Model
         
     }
 
+    public function bannerImage(){
+        $imagePath = ($this->banner) ? $this->banner : 'profile/No_banner_available.png';
+        return '/storage/' . $imagePath;
+        
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

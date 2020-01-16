@@ -120,7 +120,7 @@ class ProfileController extends Controller
 
             if(request('avatar')){
                 $imagePath = request('avatar')->store('profile', 'public');
-                $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
+                $image = Image::make(public_path("storage/public/{$imagePath}"))->fit(1000, 1000);
                 $image->save();
                 $data = array_merge($data, ['avatar' => $imagePath]);
             }
@@ -141,6 +141,6 @@ class ProfileController extends Controller
         $users->profile()->delete();
         $users->delete();
 
-        return redirect('main/welcome');
+        return redirect('/');
     }
 }

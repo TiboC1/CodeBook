@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="fb-profile-block">
                     <div class="fb-profile-block-thumb cover-container"></div>
-                    <img src="/images/venice.jpg">
+                    <img src="{{$user->profile->bannerImage()}}">
                     <div class="profile-img">
                         <a href="#">
                             <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
