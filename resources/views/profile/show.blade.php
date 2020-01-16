@@ -139,6 +139,9 @@
             @endif
         </strong>
     </button>
+    <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+    <p>{{$followerCount}}</p>
+    <p>{{$followingCount}}</p>
 </body>
 
 @endsection
