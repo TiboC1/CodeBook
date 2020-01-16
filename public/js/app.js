@@ -1954,7 +1954,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('/follow/' + this.userId).then(function (response) {
         _this.status = !_this.status;
-        console.log(response.data);
       })["catch"](function (errors) {
         if (errors.response.status == 401) {
           window.location = '/login';

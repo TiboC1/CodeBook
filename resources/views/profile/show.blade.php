@@ -83,7 +83,7 @@
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    @foreach ($user->post as $post)
+                    @foreach ($posts as $post)
                    
 
                     <div class="card col-md-12">
@@ -131,7 +131,11 @@
     </div>
 
     
-    <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+    @if (Auth::user()->id == $user->id)
+                    
+                    @else
+                    <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+                    @endif
     <p>{{$followerCount}}</p>
     <p>{{$followingCount}}</p>
 </body>

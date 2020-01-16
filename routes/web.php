@@ -15,14 +15,13 @@ Route::get('/', function () {
     return view('/main/welcome');
 });
 
-Route::post('follow/{user}', 'FollowsController@store');
+Route::post('/follow/{user}', 'FollowingController@store');
 Route::post('/profile', 'ProfileController@store');
 Route::get('/main', 'PostController@index')->name('dashboard');
 Route::get('/main/{user}', 'PostController@index')->name('dashboard');
 Route::get('/index', 'ProfileController@index');
 
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
-Route::post('/follow', 'ProfileController@follwUserRequest')->name('follow');
 Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit');
 Route::patch('/profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::delete('/profile/{user}', 'ProfileController@destroy')->name('profile.delete');
