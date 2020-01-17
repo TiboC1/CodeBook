@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="fb-profile-block">
                     <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
-                    <img class="banner" src="{{$user->profile->bannerImage()}}">
+                    <img class="banner" src="{{$user->profile->bannerImage()}}" style="height:300px">
                     <div class="profile-img">
                         <a href="{{ route('profile.show', $user)}}">
                             <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
