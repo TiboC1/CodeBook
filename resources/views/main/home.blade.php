@@ -25,7 +25,7 @@
 
 <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
-            <form action="{{ route('post.create') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('post.create', $user) }}" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" value="{{ Session::token() }}" name="_token">
                 <div class="form-group">
