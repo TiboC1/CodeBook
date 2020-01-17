@@ -73,11 +73,11 @@ class ProfileController extends Controller
              'relationship' => '',
              'work' => '',
              'education' => '',
-             'pri-dob' => '',
-             'pri-city' => '',
-             'pri-relationship' => '',
-             'pri-work' => '',
-             'pri-education' => '',
+             'priDob' => '',
+             'priCity' => '',
+             'priRelationship' => '',
+             'priWork' => '',
+             'priEducation' => '',
             
             ]);
             
