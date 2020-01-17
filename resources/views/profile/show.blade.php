@@ -4,11 +4,11 @@
 <body>
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="rowProfile">
             <div class="col-md-12">
                 <div class="fb-profile-block">
                     <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
-                    <img class="banner" src="{{$user->profile->bannerImage()}}">
+                    <img class="banner" src="{{$user->profile->bannerImage()}}" style="height:300px">
                     <div class="profile-img">
                         <a href="#">
                             <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
@@ -22,11 +22,17 @@
                         <a href="{{route('profile.edit', $user)}}" class="btn btn-info" role="button">Edit profile</a>
 
                         @endif
-                        <span class="friendship"><a href="" class="btn btn-info" role="button">Want to be my friend?</a></span>
+                        @if (Auth::user()->id == $user->id)
+                    
+                    @else
+                    <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+                    @endif
 
+                    @if (AUTH::user()->id == $user->id)
+    
                         <span class="friendship"><a href="{{route('dashboard', $user)}}" class="btn btn-info" role="button">What's on your mind</a></span>
 
-
+                    @endif
                     </div>
                    
                 </div>
@@ -45,6 +51,8 @@
     <p>{{$followingCount}}</p>
                             </div>
                             <ul class="list-group list-group-flush">
+@if (AUTH::user()->id == $user->id)
+
                                 <li class="list-group-item">Born: <span> {{$user->profile->dob}}</span></li>
                                 <li class="list-group-item">Gender: <span> {{$user->profile->gender}}</span></li>
                                 <li class="list-group-item">Lives in: <span> {{$user->profile->city}}</span></li>
@@ -52,6 +60,41 @@
                                 <li class="list-group-item">Works at: <span> {{$user->profile->work}}</span></li>
                                 <li class="list-group-item">Relationshipstatus: <span> {{$user->profile->relationship}}</span></li>
                                 <li class="list-group-item">Description: <span> {{$user->profile->description}}</span></li>
+
+@else
+    @if ($user->profile->priDob == 0)
+                                <li class="list-group-item">Born: <span> {{$user->profile->dob}}</span></li>
+    @else
+                                <p>Private</p>                                
+    @endif
+                                <li class="list-group-item">Gender: <span> {{$user->profile->gender}}</span></li>
+                                
+    @if ($user->profile->priCity == 0)
+                                
+                                <li class="list-group-item">Lives in: <span> {{$user->profile->city}}</span></li>
+    @else
+                                <p>Private</p>  
+    @endif                              
+    @if ($user->profile->priEducation == 0)
+                                
+                                <li class="list-group-item">Education: <span> {{$user->profile->education}}</span></li>
+    @else
+                                <p>Private</p>
+    @endif
+    @if ($user->profile->priWork == 0)
+                                
+                                <li class="list-group-item">Works at: <span> {{$user->profile->work}}</span></li>
+    @else
+                                <p>Private</p>
+    @endif
+    @if ($user->profile->priRelationship == 0)
+                                
+                                <li class="list-group-item">Relationshipstatus: <span> {{$user->profile->relationship}}</span></li>
+    @else
+                                <p>Private</p>
+    @endif
+                                <li class="list-group-item">Description: <span> {{$user->profile->description}}</span></li>
+@endif
                             </ul>
                         </div>
                     </div>
@@ -122,14 +165,6 @@
             </div>
         </div>
     </div>
-
-    
-    @if (Auth::user()->id == $user->id)
-                    
-                    @else
-                    <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
-                    @endif
-    
 </body>
 
 @endsection

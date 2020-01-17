@@ -81,17 +81,17 @@ class ProfileController extends Controller
              'relationship' => '',
              'work' => '',
              'education' => '',
-             'pri-dob' => '',
-             'pri-city' => '',
-             'pri-relationship' => '',
-             'pri-work' => '',
-             'pri-education' => '',
+             'priDob' => '',
+             'priCity' => '',
+             'priRelationship' => '',
+             'priWork' => '',
+             'priEducation' => '',
             
             ]);
             
             if(request('banner')){
                 $bannerPath = request('banner')->store('profile', 'public');
-                $banner = Image::make(public_path("storage/{$bannerPath}"))->fit(1500, 200);
+                $banner = Image::make(public_path("storage/{$bannerPath}"))->fit(1000, 1000);
                 $banner->save();
                 $data = array_merge($data, ['banner' => $bannerPath]);
             }
