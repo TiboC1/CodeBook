@@ -7,17 +7,7 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <p>{{$user->id}}</p>
-                    @foreach ($user->post as $post)
-                      <p>lol</p>
-                    @endforeach
-                </div>
+                
             </div>
         </div>
     </div>
