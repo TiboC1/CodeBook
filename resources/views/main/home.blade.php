@@ -22,6 +22,7 @@
         </div>
     </div>
 </div>
+<div class="col-lg-8">
 
 <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
