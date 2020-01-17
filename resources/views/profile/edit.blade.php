@@ -13,6 +13,7 @@
                 <div class="card-header">{{ __('Edit profile') }}</div>
 
                 <div class="card-body">
+                    @if($user->id == Auth::user()->id)
                     <form method="POST" enctype='multipart/form-data' action='/profile/{{$user->id}}'>
                         @csrf
                         @method('PATCH')
@@ -149,6 +150,8 @@
                     <input type="submit" value="delete">
                     
                     </form>
+                    @else
+                    <h1>GTFO you wannabe hacker!</h1>                    @endif
                 </div>
             </div>
         </div>
