@@ -21,11 +21,11 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user)
+    public function index(User $user, Profile $profile)
     {
 
         
-        return view('/main/home', compact('user'));
+        return view('/main/home', compact('user', 'profile'));
     }
 
     /**
