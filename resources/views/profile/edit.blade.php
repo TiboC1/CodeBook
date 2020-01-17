@@ -151,7 +151,8 @@
                     
                     </form>
                     @else
-                    <h1>GTFO you wannabe hacker!</h1>                    @endif
+                    <h1>GTFO you wannabe hacker!</h1>                   
+                    @endif
                 </div>
             </div>
         </div>
