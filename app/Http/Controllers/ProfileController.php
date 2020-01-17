@@ -104,7 +104,7 @@ class ProfileController extends Controller
         
         $data = request()->validate([
              'nickname' => '',
-             'dob' => 'before:today',
+             'dob' => '',
              'gender' => '',
              'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
              'banner' => 'image|mimes:jpeg,png,jpg,gif,svg',
