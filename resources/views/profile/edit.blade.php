@@ -49,8 +49,8 @@
 
                             <div class="col-md-6">
                                 <input id="dob" type="date" name="dob" value="{{$profile->dob}}">
-                                <input type="radio" id="pri-dob" name="pri-dob" value="0"> Public<br>
-                                <input type="radio" id="pri-dob" name="pri-dob" value="1"> Private<br>
+                                <input type="radio" id="priDob" name="priDob" value="0"> Public<br>
+                                <input type="radio" id="priDob" name="priDob" value="1"> Private<br>
 
                             </div>
                         </div>
@@ -72,8 +72,8 @@
 
                             <div class="col-md-6">
                                 <input id="city" type="text" class="" name="city" value="{{$profile->city}}">
-                                <input type="radio" id="pri-city" name="pri-city" value="0"> Public<br>
-                                <input type="radio" id="pri-city" name="pri-city" value="1"> Private<br>
+                                <input type="radio" id="priCity" name="priCity" value="0"> Public<br>
+                                <input type="radio" id="priCity" name="priCity" value="1"> Private<br>
 
                             
                             </div>
@@ -94,8 +94,8 @@
 
                             <div class="col-md-6">
                                 <input id="work" type="text" class="" name="work" value="{{$profile->work}}">
-                                <input type="radio" id="pri-work" name="pri-work" value="0"> Public<br>
-                                <input type="radio" id="pri-work" name="pri-work" value="1"> Private<br>
+                                <input type="radio" id="priWork" name="priWork" value="0"> Public<br>
+                                <input type="radio" id="priWork" name="priWork" value="1"> Private<br>
 
                             </div>
                         </div>
@@ -108,8 +108,8 @@
 
                             <div class="col-md-6">
                                 <input id="education" type="text" class="" name="education" value="{{$profile->education}}">
-                                <input type="radio" id="pri-education" name="pri-education" value="0"> Public<br>
-                                <input type="radio" id="pri-education" name="pri-education" value="1"> Private<br>
+                                <input type="radio" id="priEducation" name="priEducation" value="0"> Public<br>
+                                <input type="radio" id="priEducation" name="priEducation" value="1"> Private<br>
                             </div>
                         </div>
 
@@ -127,8 +127,8 @@
                                 <option value="married" {{ $profile->relationship == 'married' ? 'selected' : '' }}>Married</option>
                                 <option value="complicated" {{ $profile->relationship == 'complicated' ? 'selected' : '' }}>It's complicated</option>
                                 </select>
-                                <input type="radio" id="pri-relationship" name="pri-relationship" value="0"> Public<br>
-                                <input type="radio" id="pri-relationship" name="pri-relationship" value="1"> Private<br>
+                                <input type="radio" id="priRelationship" name="priRelationship" value="0"> Public<br>
+                                <input type="radio" id="priRelationship" name="priRelationship" value="1"> Private<br>
                                 
                             </div>
                         </div>
