@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Profile;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,9 +30,11 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected function redirectTo(Request $request)
+    protected function redirectTo(Request $request, User $user, Profile $profile)
     {
-        return Redirect::route(dashboard);
+        return view('/main/home')->with('user', [$user]);
+        
+        ;
     }
 
     /**
