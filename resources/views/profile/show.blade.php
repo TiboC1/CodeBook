@@ -78,6 +78,9 @@
                     </div>
 
                     @endforeach
+                    <div class="row">
+                        {{$posts->links()}}
+                    </div>
                     
                 </div>
             </div>
