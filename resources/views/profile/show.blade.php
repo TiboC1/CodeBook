@@ -80,7 +80,7 @@
 
                     @endforeach
                     <div class="row">
-                    {{$posts->links()}}
+                        {{$posts->links()}}
                     </div>
                 </div>
             </div>

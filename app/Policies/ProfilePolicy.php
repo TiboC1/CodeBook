@@ -10,11 +10,6 @@ class ProfilePolicy
 {
     use HandlesAuthorization;
  
-
-    public function edit(User $user, Profile $profile){
-        return $user->id == $profile->user_id;
-    }
-
     public function update(User $user, Profile $profile)
     {
         return $user->id == $profile->user_id;
