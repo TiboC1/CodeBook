@@ -22,6 +22,14 @@ class ProfileController extends Controller
         $this->middleware('auth');
 
         }
+    public function home(User $user, Profile $profile){
+        $user=Auth::user();
+        return view('/main/home', compact ('user', 'profile'));
+    }
+    public function registerRedirect(User $user, Profile $profile){
+        $user=Auth::user();
+        return redirect('profile/'.$user->id.'/edit');
+    }
 
      public function index()
     {

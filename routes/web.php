@@ -19,6 +19,8 @@ Route::post('/follow/{user}', 'FollowingController@store');
 Route::post('/profile', 'ProfileController@store');
 Route::get('/main/{user}', 'PostController@index')->name('dashboard');
 Route::get('/index', 'ProfileController@index');
+Route::get('/home', 'ProfileController@home');
+Route::get('/registerRedirect', 'ProfileController@registerRedirect');
 
 Route::get('/profile/{user}', 'ProfileController@show')->name('profile.show');
 Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit');

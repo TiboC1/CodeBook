@@ -30,11 +30,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected function redirectTo(Request $request, User $user, Profile $profile)
+    protected function redirectTo()
     {
-        return view('/main/home')->with('user', [$user]);
-        
-        ;
+        return ('/registerRedirect');
     }
 
     /**
