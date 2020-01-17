@@ -23,18 +23,6 @@
     </div>
 </div>
 <div class="col-lg-8">
-            <header><h3>What is on your mind?</h3></header>
-         
-            <div class="card">
-                  <div class="card-header">
-                  <div class="input-group">
-                      <input type="text" name= "title" class="form-control" placeholder="Title">
-                      
-                     
-                    </div>
-                    <form action="{{ route('create') }}" method="post">
-                <div class="form-group">
-                    <textarea class="form-control" name="body" id="new-post" rows="2" placeholder="Your Post"></textarea>
 
 <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
