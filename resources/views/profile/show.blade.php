@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="fb-profile-block">
                     <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
-                    <img class="banner" src="{{$user->profile->bannerImage()}}" height="200px">
+                    <img class="banner" src="{{$user->profile->bannerImage()}}">
                     <div class="profile-img">
                         <a href="#">
                             <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
@@ -23,6 +23,9 @@
 
                         @endif
                         <span class="friendship"><a href="" class="btn btn-info" role="button">Want to be my friend?</a></span>
+
+                        <span class="friendship"><a href="{{route('dashboard', $user)}}" class="btn btn-info" role="button">What's on your mind</a></span>
+
 
                     </div>
                    

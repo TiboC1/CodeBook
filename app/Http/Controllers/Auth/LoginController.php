@@ -26,7 +26,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/main";
+    protected function redirectTo(Request $request)
+{
+    return Redirect::route(dashboard);
+}
 
     /**
      * Create a new controller instance.
