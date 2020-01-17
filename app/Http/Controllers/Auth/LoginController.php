@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use App\Profile;
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -26,10 +29,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo(Request $request)
-{
-    return Redirect::route(dashboard);
-}
+    protected function redirectTo(Request $request, User $user, Profile $profile)
+    {
+        return view('/main/home', compact('user', 'profile'));
+    }
 
     /**
      * Create a new controller instance.

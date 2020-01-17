@@ -114,6 +114,7 @@
                    
 
                     <div class="card col-md-10">
+                    
                          <h2>{{$post->title}}</h2>
                              <div class="card-body">
                                  <p class="card-text">{{$post->body}}</p>
@@ -121,7 +122,9 @@
                     </div>
 
                     @endforeach
-                    
+                    <div class="row">
+                        {{$posts->links()}}
+                    </div>
                 </div>
             </div>
             <div class="col-md-3">
