@@ -8,13 +8,15 @@
                     <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
                     <img class="banner" src="{{$user->profile->bannerImage()}}">
                     <div class="profile-img">
-                        <a href="#">
+                        <a href="{{ route('profile.show', $user)}}">
                             <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
                         </a>
                     </div>
                     <div class="profile-name">
 
+                      <a href="{{ route('profile.show', $user)}}">
                         <h2>{{$user->profile->nickname}}</h2>
+                      </a>
 
                     </div>
                    
