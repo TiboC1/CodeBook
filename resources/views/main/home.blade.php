@@ -1,18 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="fb-profile-block">
+                    <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
+                    <img class="banner" src="{{$user->profile->bannerImage()}}">
+                    <div class="profile-img">
+                        <a href="#">
+                            <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
+                        </a>
+                    </div>
+                    <div class="profile-name">
 
-                
+                        <h2>{{$user->profile->nickname}}</h2>
+
+                    </div>
+                   
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col-lg-8">
 
 <div class="col-md-6 col-md-offset-3">
             <header><h3>What do you have to say?</h3></header>
