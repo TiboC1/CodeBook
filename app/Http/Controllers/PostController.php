@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Profile;
 use App\User;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -57,6 +60,8 @@ class PostController extends Controller
         auth()->user()->post()->create([
             'title' => $data['title'],
             'body' => $data['body'],
+            'image' => $data['image']
+
         ]);
 
         // return view
