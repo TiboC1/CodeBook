@@ -50,7 +50,7 @@ class ProfileController extends Controller
 
     }
 
-    public function show(Profile $profile, User $user)
+    public function show(Profile $profile, User $user, Post $posts)
     {
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
         $followerCount =  $user->profile->followers->count();

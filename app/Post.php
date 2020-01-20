@@ -19,4 +19,11 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    // display post image function
+    
+    public function postImage(){
+        $imagePath = ($this->image) ? $this->image : 'uploads/No_image_available.png';
+        return '/storage/' . $imagePath;
+        
+    }
 }
