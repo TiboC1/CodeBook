@@ -53,6 +53,7 @@ class PostController extends Controller
 
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
+            $data = array_merge($data, ['image' => $imagePath]);
         };
 
         // persist to database
@@ -60,7 +61,7 @@ class PostController extends Controller
         auth()->user()->post()->create([
             'title' => $data['title'],
             'body' => $data['body'],
-            'image' => $data['image']
+            'image' => '/storage/'.$data['image']
 
         ]);
 

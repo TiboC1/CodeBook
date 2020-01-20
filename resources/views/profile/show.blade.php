@@ -114,7 +114,9 @@
                    
 
                     <div class="card col-md-10">
-                    
+                        @if (isset($post->image))
+                        <img src="{{$post->image}}" class="card-img-top" alt="posted image">
+                        @endif
                          <h2>{{$post->title}}</h2>
                              <div class="card-body">
                                  <p class="card-text">{{$post->body}}</p>
