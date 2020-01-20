@@ -151,7 +151,7 @@
                     
                     </form>
                     @else
-                    <h1>GTFO you wannabe hacker!</h1>                   
+                    <h1>{{Auth::user()->name}}, GTFO you wannabe hacker!</h1>                   
                     @endif
                 </div>
             </div>
