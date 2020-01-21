@@ -144,29 +144,14 @@
                                     <h1>Photos</h1>
                                 </div>
                             </div>
-                        <div class="row">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/images/5ac4c81f132ad.jpeg" class="card-img-top" alt="">
-                                    <div class="card-body">
-                                        <p class="card-text">First ad</p>
-                                    </div>
-                            </div>
                         </div>
                         <div class="row">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/images/maxresdefault.jpg" class="card-img-top" alt="">
-                                    <div class="card-body">
-                                        <p class="card-text">Second ad</p>
-                                    </div>
-                            </div>                     
-                        </div>
-                        <div class="row">
-                            <div class="card" style="width: 18rem;">
-                                <img src="/images/o0pfd.jpg" class="card-img-top" alt="">
-                                    <div class="card-body">
-                                        <p class="card-text">Third ad</p>
-                                    </div>
-                            </div>
+                            @foreach ($posts as $post)
+
+                            <img src="{{$post->image}}">
+
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>
