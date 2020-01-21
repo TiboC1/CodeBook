@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Profile;
 use App\User;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -50,14 +53,26 @@ class PostController extends Controller
 
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
-        };
+            $data = array_merge($data, ['image' => $imagePath]);
+            // persist to database with image
+            auth()->user()->post()->create([
+                'title' => $data['title'],
+                'body' => $data['body'],
+                'image' => '/storage/'.$data['image']
+    
+            ]);
+        }
+        // persist to database without image
+        else{
+            auth()->user()->post()->create([
+                'title' => $data['title'],
+                'body' => $data['body'],
+    
+            ]);
 
-        // persist to database
+        }
 
-        auth()->user()->post()->create([
-            'title' => $data['title'],
-            'body' => $data['body'],
-        ]);
+
 
         // return view
 

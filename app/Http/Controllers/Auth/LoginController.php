@@ -29,10 +29,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo(Request $request, User $user, Profile $profile)
-    {
-        return view('/main/home', compact('user', 'profile'));
-    }
+    protected function redirectTo()
+{
+   
+    return ('/home');
+}
 
     /**
      * Create a new controller instance.
