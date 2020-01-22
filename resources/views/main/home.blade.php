@@ -40,9 +40,27 @@
                 <input type="submit" class="btn btn-primary" value="Post">
             </form>
         
-         </div>
+</div>
                   
-                 
+@foreach ($profile as $profile)
+<h4>  {{$profile}}</h4>
+@endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   <ul class="list-group card-list-group">
                     <li class="list-group-item py-5">
                       <div class="media">
