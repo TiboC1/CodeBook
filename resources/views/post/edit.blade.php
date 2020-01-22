@@ -17,7 +17,15 @@
                     <form method="POST" enctype='multipart/form-data' action='/post/{{$post->id}}'>
                         @csrf
                         @method('PATCH')
+                        <input type="hidden" value="{{ Session::token() }}" name="_token">
+                        <div class="form-group">
+                            <label for="title">Post Title</label>
+                            <input type="text" id="title" name="title" value="{{ $post->title}}">
 
+                            <textarea class="form-control" name="body" rows="5" value="{{ $post->body}}"></textarea>
+                            <input type="file" name= "image" class="form-control" value="{{ $post->image}}">
+                        </div>    
+                        <input type="submit" class="btn btn-primary" value="Post">
                             
                     </form>
                     <form action="{{route('post.delete', $post)}}" method="post">
