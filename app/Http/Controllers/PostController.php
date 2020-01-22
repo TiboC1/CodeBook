@@ -88,7 +88,7 @@ class PostController extends Controller
     }
     public function update(Request $request, Post $post, User $user){
         
-        $this->authorize('update',$user->post);
+        $this->authorize('update',$post);
         
         $data = request()->validate([
              'title' => '',
