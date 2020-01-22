@@ -98,7 +98,7 @@ class PostController extends Controller
         return redirect("/profile/{$user->id}");
     }
   
-    public function destroy(Post $post, User $user)
+    public function delete(Post $post)
     {
 
         $this->authorize('delete',$user->post);
