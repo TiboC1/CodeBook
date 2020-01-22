@@ -34,6 +34,6 @@ Route::delete('/profile/{user}', 'ProfileController@destroy')->name('profile.del
 Route::post('/main/{user}', 'PostController@store')->name('post.create');
 Route::get('/post/{post}/edit', 'PostController@edit')->name('post.edit');
 Route::patch('/post/{post}', 'PostController@update')->name('post.update');
-Route::delete('/post/{post}', 'PostController@delete')->name('post.delete');
+Route::delete('/post/{post}', 'PostController@destroy')->name('post.delete');
 
 Auth::routes();

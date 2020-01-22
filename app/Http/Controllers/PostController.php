@@ -85,26 +85,27 @@ class PostController extends Controller
     }
     public function update(Request $request, Post $post, User $user){
         
-        $this->authorize('update',$user->profile);
+        $this->authorize('update',$user->post);
         
         $data = request()->validate([
              'title' => '',
              'body' => '',
-             'gender' => '',
              'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
             
-        auth()->user()->profile->update($data);
+        auth()->user()->post->update($data);
         
         return redirect("/profile/{$user->id}");
     }
   
-    public function destroy(Post $post)
+    public function destroy(Post $post, User $user)
     {
+
+        $this->authorize('delete',$user->post);
 
         $post->delete();
 
-        return redirect('/');
+        return redirect('/main/home');
     }
     
 }
