@@ -105,11 +105,11 @@ class PostController extends Controller
     public function delete(Post $post, User $user)
     {
 
-        $this->authorize('delete',$user->post);
+        $this->authorize('delete',$post);
 
         $post->delete();
-
-        return redirect('/main/home');
+        $user=auth()->user();
+        return redirect("/profile/{$user->id}");
     }
     
 }
