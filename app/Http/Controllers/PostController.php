@@ -102,7 +102,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
 
-        $this->delete();
+        $post->delete();
 
         return redirect('/');
     }
