@@ -6,6 +6,7 @@ use App\Post;
 use App\Profile;
 use App\User;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
@@ -81,7 +82,8 @@ class PostController extends Controller
     }
 
     public function edit(Post $post, User $user){
- 
+
+        $user = Auth::user();
         return view('/post/edit', compact('user','post'));
     }
     public function update(Request $request, Post $post, User $user){
