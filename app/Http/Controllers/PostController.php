@@ -79,16 +79,32 @@ class PostController extends Controller
         return view('/main/home', compact('profile', 'user'));
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
+    public function edit(Post $post, User $user){
+ 
+        return view('/post/edit', compact('user','post'));
+    }
+    public function update(Request $request, Post $post, User $user){
+        
+        $this->authorize('update',$user->profile);
+        
+        $data = request()->validate([
+             'title' => '',
+             'body' => '',
+             'gender' => '',
+             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+            
+        auth()->user()->profile->update($data);
+        
+        return redirect("/profile/{$user->id}");
+    }
+  
     public function destroy(Post $post)
     {
 
+        $post->delete();
+
+        return redirect('/');
     }
     
 }
