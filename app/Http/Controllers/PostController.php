@@ -9,6 +9,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -98,7 +99,7 @@ class PostController extends Controller
         return redirect("/profile/{$user->id}");
     }
   
-    public function delete(Post $post)
+    public function delete(Post $post, User $user)
     {
 
         $this->authorize('delete',$user->post);

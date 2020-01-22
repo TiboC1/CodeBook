@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Profile;
+//use App\Profile;
 use App\User;
 use App\Post;
 
