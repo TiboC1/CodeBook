@@ -15,7 +15,7 @@ class Profile extends Model
     // display profile image function
 
     public function profileImage(){
-        $imagePath = ($this->avatar) ? $this->avatar : 'profile/No_image_available.png';
+        $imagePath = ($this->avatar) ? $this->avatar : 'profile/anonymous_avatar.jpeg';
         return '/storage/' . $imagePath;
     
     }
@@ -23,7 +23,7 @@ class Profile extends Model
     // display banner image function
 
     public function bannerImage(){
-        $bannerPath = ($this->banner) ? $this->banner : 'profile/No_banner_available.png';
+        $bannerPath = ($this->banner) ? $this->banner : 'profile/anonymous_banner.jpg';
         return '/storage/' . $bannerPath;
         
     }

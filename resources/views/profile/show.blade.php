@@ -11,7 +11,8 @@
                     <img class="banner" src="{{$user->profile->bannerImage()}}" style="height:300px">
                     <div class="profile-img">
                         <a href="#">
-                            <img src="{{$user->profile->profileImage()}}" alt="" class="rounded-circle" title="">
+                            <img src="{{$user->profile->profileImage()}}" alt="problem loading your avatar" class="rounded-circle" title="">
+
                         </a>
                     </div>
                     <div class="profile-name">
