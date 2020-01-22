@@ -5,6 +5,8 @@
 
 
 
+<p>{{$post->user_id}}</p>
+<p>{{$user->id}}</p>
 
 <div class="container">
     <div class="row justify-content-center">
