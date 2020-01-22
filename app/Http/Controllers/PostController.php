@@ -99,7 +99,7 @@ class PostController extends Controller
         return redirect("/profile/{$user->id}");
     }
   
-    public function destroy(Post $post)
+    public function delete(Post $post)
     {
 
         $post->delete();
