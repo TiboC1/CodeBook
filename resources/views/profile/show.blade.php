@@ -8,18 +8,10 @@
             <div class="col-md-12">
                 <div class="fb-profile-block">
                     <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
-                    @if ($user->profile->banner!=null)
                     <img class="banner" src="{{$user->profile->bannerImage()}}" style="height:300px">
-                    @elseif ($user->profile->banner==null)
-                    <img class="banner" src="/storage/profile/anonymous_banner.jpg" style="height:300px">
-                    @endif
                     <div class="profile-img">
                         <a href="#">
-                            @if($user->profile->avatar==null)
-                            <img src="/storage/profile/anonymous_avatar.jpeg" alt="problem loading avatar" class="rounded-circle" title="">
-                            @elseif ($user->profile->avatar!=null)
                             <img src="{{$user->profile->profileImage()}}" alt="problem loading your avatar" class="rounded-circle" title="">
-                            @endif
 
                         </a>
                     </div>
