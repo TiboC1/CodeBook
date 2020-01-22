@@ -10,6 +10,6 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'user_id' => '1',
         'title' =>$faker->sentence,
-        'body' => $faker->paragraph,
+        'body' => implode("\n", $faker->paragraphs(3)),
     ];
 });

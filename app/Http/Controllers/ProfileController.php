@@ -33,8 +33,11 @@ class ProfileController extends Controller
 
      public function index()
     {
-        $profiles=Profile::latest()->get();
-        dd($profiles);
+        $profiles=Profile::get();
+        //dd($profiles);
+        foreach ($profiles as $profile) {
+            echo("</br><a href=/profile/".$profile->id.">".$profile->nickname."</a>");
+        }
 
     }
 
