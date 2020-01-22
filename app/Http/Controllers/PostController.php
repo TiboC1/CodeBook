@@ -6,6 +6,7 @@ use App\Post;
 use App\Profile;
 use App\User;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
@@ -80,31 +81,33 @@ class PostController extends Controller
     }
 
     public function edit(Post $post, User $user){
- 
+
+        $user = Auth::user();
         return view('/post/edit', compact('user','post'));
     }
     public function update(Request $request, Post $post, User $user){
         
-        $this->authorize('update',$user->profile);
+        $this->authorize('update',$user->post);
         
         $data = request()->validate([
              'title' => '',
              'body' => '',
-             'gender' => '',
              'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
             
-        auth()->user()->profile->update($data);
+        auth()->user()->post->update($data);
         
         return redirect("/profile/{$user->id}");
     }
   
-    public function destroy(Post $post)
+    public function delete(Post $post, User $user)
     {
+
+        $this->authorize('delete',$user->post);
 
         $post->delete();
 
-        return redirect('/');
+        return redirect('/main/home');
     }
     
 }
