@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -87,7 +88,7 @@ class PostController extends Controller
     }
     public function update(Request $request, Post $post, User $user){
         
-        $this->authorize('update',$user->post);
+        $this->authorize('update',$post);
         
         $data = request()->validate([
              'title' => '',
@@ -95,8 +96,9 @@ class PostController extends Controller
              'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
             
-        auth()->user()->post->update($data);
-        
+        auth()->user()->post()->update($data);
+        $user=auth()->user();
+        //return "I just updated your post";
         return redirect("/profile/{$user->id}");
     }
   
