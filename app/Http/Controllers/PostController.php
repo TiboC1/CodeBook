@@ -96,8 +96,8 @@ class PostController extends Controller
              'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
             ]);
             
-        auth()->user()->post()->update($data);
-        $user=auth()->user();
+        $post->update($data);    //this updaes all posts from the user
+        $user = Auth::user();
         //return "I just updated your post";
         return redirect("/profile/{$user->id}");
     }
