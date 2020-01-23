@@ -58,12 +58,24 @@ class ProfileController extends Controller
 
     public function show(Profile $profile, User $user, Post $posts)
     {
+        // setting default follow status as false
+
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+        // fetching followers and following from database
+
         $followerCount =  $user->profile->followers->count();
         $followingCount =  $user->following->count();
+        $followers = $user->profile->followers()->get();
+        $following = $user->following()->get();
+
+        // fetching and displaying relevant posts and images
+
         $posts = DB::table('posts')->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
         $images = DB::table('posts')->where('user_id', $user->id)->where('image', '<>', '', 'and')->get();
-        return view("/profile/show", compact('user', 'posts', 'follows', 'profile', 'followerCount', 'followingCount', 'images'));
+
+
+        return view("/profile/show", compact('user', 'posts', 'follows', 'profile', 'followerCount', 'followingCount', 'images', 'followers', 'following'));
 
     }
 
@@ -93,6 +105,8 @@ class ProfileController extends Controller
              'priRelationship' => '',
              'priWork' => '',
              'priEducation' => '',
+             'priFollowers' => '',
+             'priFollowing' => '',
             
             ]);
             

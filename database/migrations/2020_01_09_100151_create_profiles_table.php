@@ -31,6 +31,8 @@ class CreateProfilesTable extends Migration
             $table->boolean('priRelationship')->default(0);   
             $table->boolean('priWork')->default(0);   
             $table->boolean('priEducation')->default(0);   
+            $table->boolean('priFollowers')->default(0);   
+            $table->boolean('priFollowing')->default(0);   
             $table->timestamps();
         });
     }
