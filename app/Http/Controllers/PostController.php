@@ -6,8 +6,10 @@ use App\Post;
 use App\Profile;
 use App\User;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Http\Request;
 
@@ -26,7 +28,10 @@ class PostController extends Controller
 
     public function index(User $user, Profile $profile)
     {
-        return view('/main/home', compact('user', 'profile'));
+
+        $users = auth()->user()->following()->pluck('profile_user.profile_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        return view('/main/home', compact('user', 'profile', 'posts'));
     }
 
     /**
@@ -72,23 +77,43 @@ class PostController extends Controller
 
         }
 
-
+        $users = auth()->user()->following()->pluck('profile_user.user_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
 
         // return view
 
-        return view('/main/home', compact('profile', 'user'));
+        return view('/main/home', compact('profile', 'user', 'posts'));
     }
 
+    public function edit(Post $post, User $user){
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
+        $user = Auth::user();
+        return view('/post/edit', compact('user','post'));
+    }
+    public function update(Request $request, Post $post, User $user){
+        
+        $this->authorize('update',$post);
+        
+        $data = request()->validate([
+             'title' => '',
+             'body' => '',
+             'image' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            ]);
+            
+        $post->update($data);    //this updaes all posts from the user
+        $user = Auth::user();
+        //return "I just updated your post";
+        return redirect("/profile/{$user->id}");
+    }
+  
+    public function delete(Post $post, User $user)
     {
 
+        $this->authorize('delete',$post);
+
+        $post->delete();
+        $user=auth()->user();
+        return redirect("/profile/{$user->id}");
     }
     
 }

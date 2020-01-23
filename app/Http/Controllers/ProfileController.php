@@ -24,7 +24,9 @@ class ProfileController extends Controller
         }
     public function home(User $user, Profile $profile){
         $user=Auth::user();
-        return view('/main/home', compact ('user', 'profile'));
+        $users = auth()->user()->following()->pluck('profile_user.profile_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        return view('/main/home', compact ('user', 'profile', 'posts'));
     }
     public function registerRedirect(User $user, Profile $profile){
         $user=Auth::user();
@@ -34,10 +36,11 @@ class ProfileController extends Controller
      public function index()
     {
         $profiles=Profile::get();
-        //dd($profiles);
-        foreach ($profiles as $profile) {
-            echo("</br><a href=/profile/".$profile->id.">".$profile->nickname."</a>");
-        }
+        return view('/index', compact('profiles'));
+        // //dd($profiles);
+        // foreach ($profiles as $profile) {
+        //     echo("</br><a href=/profile/".$profile->id.">".$profile->nickname."</a>");
+        // }
 
     }
 
@@ -55,11 +58,24 @@ class ProfileController extends Controller
 
     public function show(Profile $profile, User $user, Post $posts)
     {
+        // setting default follow status as false
+
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+        // fetching followers and following from database
+
         $followerCount =  $user->profile->followers->count();
         $followingCount =  $user->following->count();
+        $followers = $user->profile->followers()->get();
+        $following = $user->following()->get();
+
+        // fetching and displaying relevant posts and images
+
         $posts = DB::table('posts')->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
-        return view("/profile/show", compact('user', 'posts', 'follows', 'profile', 'followerCount', 'followingCount'));
+        $images = DB::table('posts')->where('user_id', $user->id)->where('image', '<>', '', 'and')->get();
+
+
+        return view("/profile/show", compact('user', 'posts', 'follows', 'profile', 'followerCount', 'followingCount', 'images', 'followers', 'following'));
 
     }
 
@@ -89,6 +105,8 @@ class ProfileController extends Controller
              'priRelationship' => '',
              'priWork' => '',
              'priEducation' => '',
+             'priFollowers' => '',
+             'priFollowing' => '',
             
             ]);
             
@@ -112,6 +130,9 @@ class ProfileController extends Controller
 
     public function destroy(Profile $profile, User $user)
     {
+
+        $this->authorize('delete',$user->profile);
+
         $users = User::findOrFail($user->id);
         $users->profile()->delete();
         $users->post()->delete();
