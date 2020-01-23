@@ -118,7 +118,6 @@
                    
 
                     <div class="card col-md-10">
-                    <p>{{$post->id}}</p>
                     <p>{{$post->updated_at}}</p>
                         @if (isset($post->image))
                         <img src="{{$post->image}}" class="card-img-top" alt="posted image">
@@ -127,6 +126,7 @@
                              <div class="card-body">
                                  <p class="card-text">{{$post->body}}</p>
                              </div>
+                            <a href="../../post/{{$post->id}}/edit"><button> Edit</button></a>
                     </div>
 
                     @endforeach
