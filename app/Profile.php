@@ -41,10 +41,5 @@ class Profile extends Model
         return $this->belongsToMany(User::class);
     }
 
-    // pagination for posts
 
-    public function postsPerPage(){
-        $post = DB::table('posts')->paginate(5);
-        return view ('profile.show', ['posts'=>$post]);
-    }
 }

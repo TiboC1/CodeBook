@@ -7,30 +7,25 @@
         <div class="rowProfile">
             <div class="col-md-12">
                 <div class="fb-profile-block">
-                    <div class="h-100 d-inline-block fb-profile-block-thumb cover-container"></div>
-                    <img class="banner" src="{{$user->profile->bannerImage()}}" style="height:300px">
-                    <div class="profile-img">
-                        <a href="#">
-                            <img src="{{$user->profile->profileImage()}}" alt="problem loading your avatar" class="rounded-circle" title="">
-
-                        </a>
-                    </div>
-                    <div class="profile-name">
-
-                        <h2>{{$user->profile->nickname}}</h2>
+                    <div class="cover-container">
+                        <img class="banner" src="{{$user->profile->bannerImage()}}" style="height:300px">
+                            <div class="profile-img">
+                                <a href="#">
+                                    <img src="{{$user->profile->profileImage()}}" alt="problem loading your avatar" class="rounded-circle" title="">
+                                </a>
+                            </div>
+                            <div class="profile-name">
+                                <h2>{{$user->profile->nickname}}</h2>
 <!-- user can edit his own profile and make a post-->
-                        @if (Auth::user()->id == $user->profile->id)
-                        <a href="{{route('profile.edit', $user)}}" class="btn btn-info" role="button">Edit profile</a>
-                        <span class="friendship"><a href="{{route('dashboard', $user)}}" class="btn btn-info" role="button">What's on your mind</a></span>
+                            @if (Auth::user()->id == $user->profile->id)
+                                <a href="{{route('profile.edit', $user)}}" class="btn btn-info" role="button">Edit profile</a>
+                                <span class="friendship"><a href="{{route('dashboard', $user)}}" class="btn btn-info" role="button">What's on your mind</a></span>
 <!-- non users can follow this profile -->
-                        @elseif (Auth::user()->id != $user->id)
-                    
-                    
-                        <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
-                        @endif
-
+                            @elseif (Auth::user()->id != $user->id)                                      
+                                <follow-button user-id="{{$user->id}}" follows="{{$follows}}"></follow-button>
+                            @endif
+                            </div>                 
                     </div>
-                   
                 </div>
             </div>
         </div>
