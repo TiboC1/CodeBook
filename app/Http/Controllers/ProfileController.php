@@ -59,7 +59,8 @@ class ProfileController extends Controller
         $followerCount =  $user->profile->followers->count();
         $followingCount =  $user->following->count();
         $posts = DB::table('posts')->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(5);
-        return view("/profile/show", compact('user', 'posts', 'follows', 'profile', 'followerCount', 'followingCount'));
+        $images = DB::table('posts')->where('user_id', $user->id)->where('image', '<>', '', 'and')->get();
+        return view("/profile/show", compact('user', 'posts', 'follows', 'profile', 'followerCount', 'followingCount', 'images'));
 
     }
 

@@ -149,9 +149,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            @foreach ($posts as $post)
+                            @foreach ($images as $image)
 
-                            <img src="{{$post->image}}">
+                            <img src="{{$image->image}}">
 
                             @endforeach
                             
