@@ -19,7 +19,13 @@
                 height: 100vh;
                 margin: 0;
             }
-
+            .background-img{
+                background-image:url("/images/poster.jpg");
+                background-repeat: no repeat;
+                background-size: cover;
+                height:100vh;
+                width:100%
+            }
             .full-height {
                 height: 100vh;
             }
@@ -78,7 +84,7 @@
                     @endauth
                 </div>
             @endif
-
+<div class = "background-img">
             <div class="content">
                 <div class="title m-b-md">
                     CodeBook
@@ -87,10 +93,11 @@
                 <div class="links">
                     <a href="https://laravel.com/docs">Instacode</a>
                     <a href="https://www.facebook.com/becode.org">Laracasts</a>
-                
+
                     <a href="https://github.com/TiboC1/CodeBook">GitHub</a>
                 </div>
             </div>
+        </div>
         </div>
     </body>
 </html>
