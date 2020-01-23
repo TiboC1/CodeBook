@@ -24,7 +24,9 @@ class ProfileController extends Controller
         }
     public function home(User $user, Profile $profile){
         $user=Auth::user();
-        return view('/main/home', compact ('user', 'profile'));
+        $users = auth()->user()->following()->pluck('profile_user.profile_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        return view('/main/home', compact ('user', 'profile', 'posts'));
     }
     public function registerRedirect(User $user, Profile $profile){
         $user=Auth::user();

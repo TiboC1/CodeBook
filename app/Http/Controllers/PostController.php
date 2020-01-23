@@ -28,7 +28,10 @@ class PostController extends Controller
 
     public function index(User $user, Profile $profile)
     {
-        return view('/main/home', compact('user', 'profile'));
+
+        $users = auth()->user()->following()->pluck('profile_user.profile_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        return view('/main/home', compact('user', 'profile', 'posts'));
     }
 
     /**
@@ -74,11 +77,12 @@ class PostController extends Controller
 
         }
 
-
+        $users = auth()->user()->following()->pluck('profile_user.user_id');
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
 
         // return view
 
-        return view('/main/home', compact('profile', 'user'));
+        return view('/main/home', compact('profile', 'user', 'posts'));
     }
 
     public function edit(Post $post, User $user){
