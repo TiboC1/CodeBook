@@ -132,8 +132,15 @@
                                 
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <label for="priFollowers">List your followers</label>
+                            <input type="radio" id="priFollowers" name="priFollowers" value="0"> Public<br>
+                            <input type="radio" id="priFollowers" name="priFollowers" value="1"> Private<br>
 
-                        
+                            <label for="priFollowing">List the people you follow</label>
+                            <input type="radio" id="priFollowing" name="priFollowing" value="0"> Public<br>
+                            <input type="radio" id="priFollowing" name="priFollowing" value="1"> Private<br>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">

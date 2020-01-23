@@ -46,12 +46,11 @@
                         <div class="card" style="width: 18rem;">
                             <div class="card-header">
                                 <h1>Info</h1>
-    
-    <p>{{$followerCount}}</p>
-    <p>{{$followingCount}}</p>
-
                             </div>
                             <ul class="list-group list-group-flush">
+
+                <!-- display if it's user's own profile -->
+
     @if (AUTH::user()->id == $user->id)
 
                                 <li class="list-group-item">Born: <span> {{$user->profile->dob}}</span></li>
@@ -61,6 +60,10 @@
                                 <li class="list-group-item">Works at: <span> {{$user->profile->work}}</span></li>
                                 <li class="list-group-item">Relationshipstatus: <span> {{$user->profile->relationship}}</span></li>
                                 <li class="list-group-item">Description: <span> {{$user->profile->description}}</span></li>
+                                <li class="list-group-item">Following: <span> {{$followingCount}}</span></li>
+                                <li class="list-group-item">Followers: <span> {{$followerCount}}</span></li>
+
+                <!-- display if it's NOT user's own profile -->
 
     @else
         @if ($user->profile->priDob == 0)
@@ -95,9 +98,61 @@
                                 <p>Private</p>
         @endif
                                 <li class="list-group-item">Description: <span> {{$user->profile->description}}</span></li>
+                                <li class="list-group-item">Following: <span> {{$followingCount}}</span></li>
+                                <li class="list-group-item">Followers: <span> {{$followerCount}}</span></li>
+                            </ul>
     @endif
+
+                        </div>
+
+                        @if ($user->profile->priFollowers == 0)
+
+                    <!-- List of Followers -->
+
+                        <div class="card  my-3" style="width: 18rem;">
+                            <div class="card-title">
+                                <h3 class="text-center py-1">List of Followers</h2>
+                            </div>
+                            <ul class="list-group list-group-flush">
+
+                            @foreach ($followers as $follower)
+
+                            <li class="list-group-item">
+                                <a href="{{ route ('profile.show', $follower->id) }}">
+                                    <img class="rounded-circle" style="width: 35px" src="{{$follower->profile->profileImage()}}"> 
+                                    <span>{{$follower->name}}</span>
+                                </a>
+                            </li>
+                            @endforeach
                             </ul>
                         </div>
+                        @endif
+
+                        @if ($user->profile->priFollowing == 0)
+
+                    <!-- List of Following -->
+
+                        <div class="card my-3" style="width: 18rem;">
+                            <div class="card-title">
+                                <h3 class="text-center py-1">List of Following</h2>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+
+                            @foreach ($following as $follow)
+
+                            <li class="list-group-item">
+                                <a href="{{ route ('profile.show', $follow->id) }}">
+                                    <img class="rounded-circle" style="width: 35px" src="{{$follow->profileImage()}}"> 
+                                    <span>{{$follow->user->name}}</span>
+                                </a>
+                            </li>
+                            @endforeach
+                            </ul>                            
+                        </div>
+
+                        @endif
+
                     </div>
                 </div>
             </div>
