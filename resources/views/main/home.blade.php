@@ -43,7 +43,7 @@
 </div>
                   
 @foreach ($profile as $profile)
-<h4>  {{$profile}}</h4>
+<h4>  {{$user->profile->nickname}}</h4>
 @endforeach
 
 
