@@ -126,7 +126,7 @@
                              <div class="card-body">
                                  <p class="card-text">{{$post->body}}</p>
                              </div>
-                            <a href="../../post/{{$post->id}}/edit"><button> Edit</button></a>
+                            <a href="../../post/{{$post->id}}/edit" role="button"> Edit</a>
                     </div>
 
                     @endforeach
