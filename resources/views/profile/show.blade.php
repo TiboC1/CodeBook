@@ -15,7 +15,12 @@
                                 </a>
                             </div>
                             <div class="profile-name">
-                                <h2>{{$user->profile->nickname}}</h2>
+                            @if ($user->profile->nickname == '')
+                                <h2>{{$user->username}}</h2>
+                            @else
+                                <h2>{{$user->profile->nickname}}</h2
+                            @endif
+
 <!-- user can edit his own profile and make a post-->
                             @if (Auth::user()->id == $user->profile->id)
                                 <a href="{{route('profile.edit', $user)}}" class="btn btn-info" role="button">Edit profile</a>
