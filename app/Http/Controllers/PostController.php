@@ -28,9 +28,13 @@ class PostController extends Controller
 
     public function index(User $user, Profile $profile)
     {
+        // import relevant posts
 
         $users = auth()->user()->following()->pluck('profile_user.profile_id');
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+
+        // return dashboard
+
         return view('/main/home', compact('user', 'profile', 'posts'));
     }
 
@@ -59,7 +63,9 @@ class PostController extends Controller
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
             $image->save();
             $data = array_merge($data, ['image' => $imagePath]);
+
             // persist to database with image
+
             auth()->user()->post()->create([
                 'title' => $data['title'],
                 'body' => $data['body'],
@@ -67,7 +73,9 @@ class PostController extends Controller
     
             ]);
         }
+
         // persist to database without image
+
         else{
             auth()->user()->post()->create([
                 'title' => $data['title'],
@@ -76,6 +84,8 @@ class PostController extends Controller
             ]);
 
         }
+
+        // import relevant posts
 
         $users = auth()->user()->following()->pluck('profile_user.user_id');
         $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);

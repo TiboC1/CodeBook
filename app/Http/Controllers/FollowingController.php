@@ -14,6 +14,9 @@ class FollowingController extends Controller
 
     public function store(User $user)
     {
+
+        // toggle between follow and unfollow
+
         return auth()->user()->following()->toggle($user->profile);
         
     }
