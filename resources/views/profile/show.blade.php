@@ -181,7 +181,9 @@
                              <div class="card-body">
                                  <p class="card-text">{{$post->body}}</p>
                              </div>
+                            @if (AUTH::user()->id == $user->id)
                             <a href="../../post/{{$post->id}}/edit" role="button"> Edit</a>
+                            @endif
                     </div>
 
                     @endforeach

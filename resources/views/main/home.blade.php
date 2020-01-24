@@ -39,8 +39,15 @@
             </form>
 </div>
 @foreach ($posts as $post)
-  <div>
-    <p>{{$post->title}}</p>
+  <div class="card">
+  @if ($post->image!="")
+    <img src="{{$post->image}}" alt="posted image" width="300px">
+  @endif
+  <div class="card-body">
+    <p>{{$post->user_id}}</p>
+    <p class="card-title"><h4>{{$post->title}}</h4></p>
+    <p class="card-text">{{$post->body}}</p>
+  </div>
         
         
   </div>

@@ -1,5 +1,5 @@
 # About this project
-This project is part of the BeCode training in the Ghent-group Yu-2.5.
+This project is part of the BeCode training in the Ghent-group Yu-2.15.
 We chose laravel as a framework because of its significance in modern web development.
 The task was to work in a fullstack team to develop either a webshop or a social media platform. We chose to create a social media platform named "Codebook". It allows its users to create an account and a profile in which they can write and edit posts that are visible to themselves and to their followers.
 
